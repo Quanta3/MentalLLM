@@ -1,12 +1,19 @@
 {
   "name": "mentalhealthbackend_la2",
   "version": "1.0.0",
+  "type":"module",
   "main": "serverjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "node server.js"
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
