@@ -1,0 +1,12 @@
+{
+  "name": "mentalhealthbackend_la2",
+  "version": "1.0.0",
+  "main": "serverjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
