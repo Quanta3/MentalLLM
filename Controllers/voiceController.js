@@ -10,56 +10,70 @@ const __dirname = dirname(__filename);
 
 export default async function voiceController(req, res) {
   try {
-    const systemPrompt = process.env.SYSTEM_PROMPT
+    const systemPrompt = process.env.SYSTEM_PROMPT;
     const { message } = req.body;
 
     if (!message) {
       return res.status(400).json({ error: 'Both systemPrompt and message are required' });
     }
 
-    // Run the external Python script with arguments
-    const scriptPath = path.join(__dirname, 'audio.py');
-    const pythonProcess = spawn('python', [scriptPath, systemPrompt+" User :" + message]);
+    // Prepare SSE response
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.flushHeaders();
 
-    let errorOutput = '';
+    // Spawn the Python script
+    const scriptPath = path.join(__dirname, 'audio.py');
+    const pythonProcess = spawn('python', [scriptPath, `${systemPrompt} User: ${message}`]);
 
     pythonProcess.stderr.on('data', (data) => {
-      errorOutput += data.toString();
       console.error('Python Error:', data.toString());
     });
 
-    // Wait for the Python script to finish
-    await new Promise((resolve, reject) => {
-      pythonProcess.on('close', (code) => {
-        if (code === 0) {
-          resolve();
-        } else {
-          reject(new Error(`audio.py exited with code ${code}: ${errorOutput}`));
-        }
-      });
-    });
+    // Directory to watch for segments
+    const audioDir = path.join(process.cwd(), 'audio');
+    let nextIndex = 1;
+    let finalFound = false;
 
-    // Path to generated audio file
-    const audioPath = path.join(process.cwd(), 'audio.wav');
+    // Polling loop: check for files every 500ms
+    while (!finalFound) {
+      const fileName =`audio${nextIndex}.wav`;
+      const filePath = path.join(audioDir, fileName);
+      const finalPath = path.join(audioDir, 'final.wav')
 
-    // Check if file exists
-    if (!fs.existsSync(audioPath)) {
-      throw new Error('audio.wav was not created by audio.py');
+      if (fs.existsSync(filePath)) {
+        const fileData = fs.readFileSync(filePath).toString('base64');
+        // send SSE event with base64-encoded audio chunk
+        res.write(`event: audio\n`);
+        res.write(`data: ${fileData}\n\n`);
+        nextIndex += 1
+      }
+      else if (fs.existsSync(finalPath)) {
+          finalFound = true;
+        } 
+      else {
+        // wait briefly before retrying
+        await new Promise((r) => setTimeout(r, 500));
+      }
     }
 
-    // Stream the audio file back to the client
-    res.set({
-      'Content-Type': 'audio/wav',
-      'Content-Disposition': 'inline; filename="response.wav"'
-    });
-    const readStream = fs.createReadStream(audioPath);
-    readStream.pipe(res);
+    // Wait for Python script to exit
+    await new Promise((resolve) => pythonProcess.on('close', resolve));
+
+    // send a final 'done' event
+    res.write(`event: done\n`);
+    res.write(`data: success\n\n`);
+    res.end();
 
   } catch (error) {
     console.error('Voice processing error:', error);
-    res.status(500).json({
-      error: 'Voice processing failed',
-      details: error.message
-    });
+    if (!res.headersSent) {
+      res.status(500).json({ error: 'Voice processing failed', details: error.message });
+    } else {
+      // If headers already sent, send an SSE error
+      res.write(`event: error\n`);
+      res.write(`data: ${JSON.stringify({ message: error.message })}\n\n`);
+      res.end();
+    }
   }
 }

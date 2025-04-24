@@ -8,7 +8,7 @@ const router = express.Router()
 
 
 router.get('/query/text', textController)
-router.get('/query/voice', voiceQuery)
+router.post('/query/voice', voiceQuery)
 router.get('/logs', protect, sucideLogger)
 
 export default router;

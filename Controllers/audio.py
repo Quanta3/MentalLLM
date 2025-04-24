@@ -2,6 +2,7 @@ import asyncio
 import wave
 import sys
 import argparse
+from pathlib import Path
 from google import genai
 
 async def async_enumerate(async_iterator):
@@ -12,34 +13,66 @@ async def async_enumerate(async_iterator):
         i += 1
 
 async def main(message):
-    client = genai.Client(api_key="", http_options={'api_version': 'v1alpha'})
+    # Initialize client
+    client = genai.Client(api_key="AIzaSyBYiWLKuGTtMXlmwjZZHEe7f5AElDd4fHA", http_options={'api_version': 'v1alpha'})
     model = "gemini-2.0-flash-live-001"
     config = {"response_modalities": ["AUDIO"]}
 
-    async with client.aio.live.connect(model=model, config=config) as session:
-        wf = wave.open("audio.wav", "wb")
-        wf.setnchannels(1)
-        wf.setsampwidth(2)
-        wf.setframerate(24000)
+    # Prepare output directory
+    audio_dir = Path("audio")
+    audio_dir.mkdir(exist_ok=True)
+    # Clean existing .wav files
+    for wav_file in audio_dir.glob("*.wav"):
+        wav_file.unlink()
 
+    # Audio parameters
+    nchannels = 1
+    sampwidth = 2      # bytes
+    framerate = 24000  # samples/sec
+    segment_duration = 2  # seconds
+    segment_frames = segment_duration * framerate
+    segment_bytes = segment_frames * sampwidth * nchannels
+
+    segment_idx = 1
+    buffer = b""
+
+    async with client.aio.live.connect(model=model, config=config) as session:
+        # Send initial user message
         await session.send_client_content(
-            turns={"role": "user", "parts": [{"text": message}]}, turn_complete=True
+            turns={"role": "user", "parts": [{"text": message}]},
+            turn_complete=True
         )
 
-        async for idx, response in async_enumerate(session.receive()):
-            if response.data is not None:
-                wf.writeframes(response.data)
+        # Receive and segment audio
+        async for _, response in async_enumerate(session.receive()):
+            if response.data:
+                buffer += response.data
+                # Write out full 2s segments
+                while len(buffer) >= segment_bytes:
+                    chunk = buffer[:segment_bytes]
+                    buffer = buffer[segment_bytes:]
 
-            # Un-comment this code to print audio data info
-            # if response.server_content.model_turn is not None:
-            #     print(response.server_content.model_turn.parts[0].inline_data.mime_type)
+                    out_path = audio_dir / f"audio{segment_idx}.wav"
+                    with wave.open(str(out_path), "wb") as wf_seg:
+                        wf_seg.setnchannels(nchannels)
+                        wf_seg.setsampwidth(sampwidth)
+                        wf_seg.setframerate(framerate)
+                        wf_seg.writeframes(chunk)
+                    print(f"Saved segment: {out_path}")
+                    segment_idx += 1
 
-        wf.close()
-        print(f"Audio response saved to audio.wav")
+        # Save any remaining audio as a final segment
+        if buffer:
+            out_path = audio_dir / f"final.wav"
+            with wave.open(str(out_path), "wb") as wf_seg:
+                wf_seg.setnchannels(nchannels)
+                wf_seg.setsampwidth(sampwidth)
+                wf_seg.setframerate(framerate)
+                wf_seg.writeframes(buffer)
+            print(f"Saved final segment: {out_path}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate audio response from Gemini")
+    parser = argparse.ArgumentParser(description="Generate audio response from Gemini in 2s segments")
     parser.add_argument("message", type=str, help="Message to send to Gemini")
     args = parser.parse_args()
-    
     asyncio.run(main(args.message))

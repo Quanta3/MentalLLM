@@ -1,5 +1,6 @@
 // server.js
 import express from 'express';
+import cors from 'cors'
 import auth from './Routes/auth.js'; // Include the .js extension
 import connectDB from './Utils/connectDB.js';
 import router from './Routes/router.js'
@@ -10,6 +11,9 @@ const app = express();
 
 dotenv.config()
 connectDB()
+
+app.use(cors())
+
 app.use(express.json());
 
 app.get('/', (req, res)=>{

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Voice Stream Client</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    #container { max-width: 600px; margin: auto; }
+    textarea { width: 100%; height: 100px; padding: .5rem; font-size: 1rem; }
+    button { padding: .5rem 1rem; font-size: 1rem; margin-top: .5rem; }
+    #status { margin-top: 1rem; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Gemini Voice Stream</h1>
+    <textarea id="message" placeholder="Type your message…"></textarea><br/>
+    <button id="send">Send &amp; Stream</button>
+    <div id="status"></div>
+  </div>
+
+  <script>
+    const sendBtn   = document.getElementById('send');
+    const msgInput  = document.getElementById('message');
+    const statusDiv = document.getElementById('status');
+
+    // Web Audio setup
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = new AudioContext();
+    let nextStartTime = audioCtx.currentTime;
+
+    function handleAudioChunk(dataB64) {
+      const binStr = atob(dataB64);
+      const bytes  = new Uint8Array(binStr.length);
+      for (let i = 0; i < binStr.length; i++) {
+        bytes[i] = binStr.charCodeAt(i);
+      }
+      audioCtx.decodeAudioData(bytes.buffer).then(buffer => {
+        const src = audioCtx.createBufferSource();
+        src.buffer = buffer;
+        src.connect(audioCtx.destination);
+        src.start(nextStartTime);
+        nextStartTime += buffer.duration;
+      });
+    }
+
+    sendBtn.addEventListener('click', async () => {
+      const message = msgInput.value.trim();
+      if (!message) return alert('Please enter a message.');
+
+      sendBtn.disabled = true;
+      statusDiv.textContent = 'Streaming…';
+      nextStartTime = audioCtx.currentTime;
+
+      try {
+        const res = await fetch('http://localhost:5000/user/query/voice', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let sseBuffer = '';
+
+        // Read until the server closes the connection
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          sseBuffer += decoder.decode(value, { stream: true });
+          const parts = sseBuffer.split('\n\n');
+          sseBuffer = parts.pop(); // incomplete tail
+
+          for (const block of parts) {
+            const lines = block.split('\n');
+            let event, data = '';
+            for (const line of lines) {
+              if (line.startsWith('event:')) event = line.split(':')[1].trim();
+              if (line.startsWith('data:'))  data  += line.split(':')[1].trim();
+            }
+            if (event === 'audio') {
+              handleAudioChunk(data);
+            }
+            // we can ignore the done event here
+          }
+        }
+
+        // only after the stream fully ends do we mark completion
+        statusDiv.textContent = '✅ Finished streaming.';
+      }
+      catch (err) {
+        console.error(err);
+        statusDiv.textContent = '❌ Error: ' + err.message;
+      }
+      finally {
+        sendBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
