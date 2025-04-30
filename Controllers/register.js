@@ -3,7 +3,7 @@ import User from '../Models/user.js';
 import hashPass from '../Utils/hashPass.js';
 
 const register = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, district } = req.body;
 
   try {
     // Hash the password before saving
@@ -14,6 +14,7 @@ const register = async (req, res) => {
       username,
       email,
       password: hashedPassword,
+      district
     });
 
     await newUser.save();

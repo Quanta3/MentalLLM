@@ -20,9 +20,9 @@ const textController = async (req, res) => {
     // Generate content using the Gemini API
     const response = await ai.models.generateContent({
       model: 'gemini-2.0-flash',
-      contents: `${systemPrompt}\nUser: HII BRO`,
+      contents: `${systemPrompt}\nUser: ${userQuery}`,
     });
-    
+
 
     // Send the response back to the user
     res.status(200).json({ response: response.text });

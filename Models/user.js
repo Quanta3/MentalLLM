@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  district:{
+    type:String,
+    required:true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,  // Automatically set the date when the user is created
