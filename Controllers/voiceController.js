@@ -11,9 +11,9 @@ const __dirname = dirname(__filename);
 export default async function voiceController(req, res) {
   try {
     const systemPrompt = process.env.SYSTEM_PROMPT;
-    const { message } = req.body;
+    const { userQuery } = req.body;
 
-    if (!message) {
+    if (!userQuery) {
       return res.status(400).json({ error: 'Both systemPrompt and message are required' });
     }
 
@@ -24,7 +24,7 @@ export default async function voiceController(req, res) {
 
     // Spawn the Python script
     const scriptPath = path.join(__dirname, 'audio.py');
-    const pythonProcess = spawn('python', [scriptPath, `${systemPrompt} User: ${message}`]);
+    const pythonProcess = spawn('python', [scriptPath, `${systemPrompt} User: ${userQuery}`]);
 
     pythonProcess.stderr.on('data', (data) => {
       console.error('Python Error:', data.toString());

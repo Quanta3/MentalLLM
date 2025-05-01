@@ -5,6 +5,11 @@ import argparse
 from pathlib import Path
 from google import genai
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 async def async_enumerate(async_iterator):
     """Helper function to enumerate async iterators"""
     i = 0
@@ -14,7 +19,7 @@ async def async_enumerate(async_iterator):
 
 async def main(message):
     # Initialize client
-    client = genai.Client(api_key="AIzaSyBYiWLKuGTtMXlmwjZZHEe7f5AElDd4fHA", http_options={'api_version': 'v1alpha'})
+    client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"), http_options={'api_version': 'v1alpha'})
     model = "gemini-2.0-flash-live-001"
     config = {"response_modalities": ["AUDIO"]}
 
