@@ -10,7 +10,7 @@ const saveQuery = async (req, res, next)=>{
         }
     
         await saveChat({ chat, location });
-    
+
         
       } catch (error) {
         console.error('Error saving chat log:', error.message);

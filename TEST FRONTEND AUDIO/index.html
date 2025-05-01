@@ -51,12 +51,13 @@
       sendBtn.disabled = true;
       statusDiv.textContent = 'Streaming…';
       nextStartTime = audioCtx.currentTime;
+      const userQuery = message;
 
       try {
         const res = await fetch('http://localhost:5000/user/query/voice', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message })
+          body: JSON.stringify({ userQuery })
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
