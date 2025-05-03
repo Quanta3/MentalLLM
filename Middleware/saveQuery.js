@@ -1,3 +1,4 @@
+import { ComputeTokensResponse } from '@google/genai';
 import saveChat from '../Utils/saveChat.js'
 import uuidClass from '../Utils/uuid.js'
 
@@ -13,7 +14,7 @@ const saveQuery = async (req, res, next) => {
     uuidClass.updateContext(uuid, userQuery);
     const chat = uuidClass.getContext(uuid);
 
-    console.log(chat)
+   
 
     if (!chat) {
       return res.status(400).json({ error: 'Invalid UUID or context expired' });
@@ -21,7 +22,7 @@ const saveQuery = async (req, res, next) => {
 
     const location = req.body.location || null;
 
-    await saveChat({ chat, location });
+    await saveChat({ uuid, userQuery, location });
 
     // Proceed to next middleware/route handler
     next();
