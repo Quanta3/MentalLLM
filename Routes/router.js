@@ -4,12 +4,14 @@ import voiceQuery from '../Controllers/voiceController.js'
 import protect from '../Middleware/auth_middleware.js'
 import sucideLogger from '../Controllers/sucideLogger.js'
 import saveQuery from '../Middleware/saveQuery.js'
+import startSession from '../Controllers/startSession.js'
 const router = express.Router()
 
 
 
-router.get('/query/text', saveQuery, textController)
+router.post('/query/text', saveQuery, textController)
 router.post('/query/voice', saveQuery, voiceQuery)
 router.get('/logs', protect, sucideLogger)
+router.post('/start', startSession)
 
 export default router;

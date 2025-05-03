@@ -2,6 +2,7 @@
 import { GoogleGenAI } from '@google/genai';
 
 
+
 const textController = async (req, res) => {
 
   const api_key = process.env.GOOGLE_API_KEY
@@ -12,6 +13,11 @@ const textController = async (req, res) => {
   if (!userQuery) {
     return res.status(400).json({ error: 'Query is required' });
   }
+
+  
+ 
+
+
 
   try {
     // Get the system prompt from the environment

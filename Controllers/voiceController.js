@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import vtt from '../Utils/voiceToText.js'
 
 // Get the current file's directory in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -11,7 +12,11 @@ const __dirname = dirname(__filename);
 export default async function voiceController(req, res) {
   try {
     const systemPrompt = process.env.SYSTEM_PROMPT;
-    const { userQuery } = req.body;
+    const { userQuery , audio} = req.body;
+
+    if(audio){
+      userQuery = vtt(audio)
+    }
 
     if (!userQuery) {
       return res.status(400).json({ error: 'Both systemPrompt and message are required' });
