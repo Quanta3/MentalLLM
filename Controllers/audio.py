@@ -64,7 +64,7 @@ async def main(message):
                         wf_seg.setframerate(framerate)
                         wf_seg.writeframes(chunk)
                     print(f"Saved segment: {out_path}")
-                    segment_idx += 1
+                    segment_idx += 1 
 
         # Save any remaining audio as a final segment
         if buffer:

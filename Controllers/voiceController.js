@@ -70,7 +70,7 @@ export default async function voiceController(req, res) {
     // send a final 'done' event
     res.write(`event: done\n`);
     res.write(`data: success\n\n`);
-    res.end();
+    res.end(); 
 
   } catch (error) {
     console.error('Voice processing error:', error);
