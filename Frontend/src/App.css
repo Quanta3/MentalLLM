@@ -925,6 +925,10 @@ body {
   width: 100%;
 }
 
+.w-\[2px\] {
+  width: 2px;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1037,6 +1041,10 @@ body {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-\[2px\] {
+  gap: 2px;
 }
 
 .-space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -1226,6 +1234,10 @@ body {
 
 .bg-white\/80 {
   background-color: rgb(255 255 255 / 0.8);
+}
+
+.bg-current {
+  background-color: currentColor;
 }
 
 .bg-gradient-to-b {

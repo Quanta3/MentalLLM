@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Mic, Phone, MessageCircle, Sparkles, Menu, X, Heart, Clock, UserPlus } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -12,6 +12,7 @@ interface LocationData {
 interface Message {
   text: string;
   isUser: boolean;
+  isVoice?: boolean;
 }
 
 export default function Chat() {
@@ -20,6 +21,59 @@ export default function Chat() {
   const [contextId, setContextId] = useState<string | null>(null)
   const [inputText, setInputText] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [isVoiceMode, setIsVoiceMode] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const visualizerBars = Array(12).fill(0)
+
+  // Audio playback state
+  const audioCtx = useRef<AudioContext | null>(null)
+  const bufferStore = useRef<Record<number, string>>({})
+  const expectedIndex = useRef<number>(1)
+  const playbackPromise = useRef<Promise<void>>(Promise.resolve())
+
+  useEffect(() => {
+    audioCtx.current = new (window.AudioContext || (window as any).webkitAudioContext)()
+    return () => {
+      audioCtx.current?.close()
+    }
+  }, [])
+
+  const tryPlaying = () => {
+    while (bufferStore.current[expectedIndex.current]) {
+      const base64 = bufferStore.current[expectedIndex.current]
+      delete bufferStore.current[expectedIndex.current]
+
+      playbackPromise.current = playbackPromise.current.then(() => {
+        return new Promise((resolve, reject) => {
+          setIsPlaying(true)
+          const binStr = atob(base64)
+          const bytes = new Uint8Array(binStr.length)
+          for (let i = 0; i < binStr.length; i++) {
+            bytes[i] = binStr.charCodeAt(i)
+          }
+          
+          audioCtx.current?.decodeAudioData(bytes.buffer)
+            .then(buffer => {
+              const src = audioCtx.current?.createBufferSource()
+              if (src && audioCtx.current) {
+                src.buffer = buffer
+                src.connect(audioCtx.current.destination)
+                src.onended = () => {
+                  resolve()
+                  if (!bufferStore.current[expectedIndex.current]) {
+                    setIsPlaying(false)
+                  }
+                }
+                src.start()
+              }
+            })
+            .catch(reject)
+        })
+      })
+
+      expectedIndex.current++
+    }
+  }
 
   useEffect(() => {
     // Restore contextId from localStorage if exists
@@ -116,7 +170,15 @@ export default function Chat() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/user/query/text`, {
+      // Reset audio state if in voice mode
+      if (isVoiceMode) {
+        bufferStore.current = {}
+        expectedIndex.current = 1
+        playbackPromise.current = Promise.resolve()
+      }
+
+      const endpoint = isVoiceMode ? 'voice' : 'text'
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/user/query/${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,13 +189,51 @@ export default function Chat() {
         })
       });
 
-      const data = await response.json();
-      const botMessage = { text: data.response, isUser: false };
-      setMessages(prev => [...prev, botMessage]);
+      if (isVoiceMode) {
+        const botMessage = { text: "Voice message", isUser: false, isVoice: true }
+        setMessages(prev => [...prev, botMessage])
+
+        const reader = response.body?.getReader()
+        const decoder = new TextDecoder()
+        let sseBuffer = ''
+
+        if (reader) {
+          while (true) {
+            const { done, value } = await reader.read()
+            if (done) break
+
+            sseBuffer += decoder.decode(value, { stream: true })
+            const parts = sseBuffer.split('\n\n')
+            sseBuffer = parts.pop() || ''
+
+            for (const block of parts) {
+              let eventType = '', dataLine = ''
+              for (const line of block.split('\n')) {
+                if (line.startsWith('event:')) eventType = line.slice(6).trim()
+                if (line.startsWith('data:')) dataLine += line.slice(5).trim()
+              }
+              if (eventType === 'audio') {
+                try {
+                  const { index, audio } = JSON.parse(dataLine)
+                  bufferStore.current[index] = audio
+                  tryPlaying()
+                } catch (e) {
+                  console.error('Invalid JSON chunk', e)
+                }
+              }
+            }
+          }
+          await playbackPromise.current
+        }
+      } else {
+        const data = await response.json()
+        const botMessage = { text: data.response, isUser: false }
+        setMessages(prev => [...prev, botMessage])
+      }
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Error sending message:', error)
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
   };
 
@@ -263,7 +363,32 @@ export default function Chat() {
                       : 'bg-gray-100 text-slate-800 rounded-bl-none'
                   }`}
                 >
-                  {message.text}
+                  {message.isVoice ? (
+                    <div className="flex items-center gap-2">
+                      <Mic className="h-4 w-4" />
+                      {message.text}
+                      {isPlaying && (
+                        <div className="flex items-end gap-[2px] h-4">
+                          {visualizerBars.map((_, i) => (
+                            <motion.div
+                              key={i}
+                              className="w-[2px] bg-current"
+                              animate={{
+                                height: isPlaying ? [4, 12, 4] : 4,
+                              }}
+                              transition={{
+                                duration: 0.4,
+                                repeat: Infinity,
+                                delay: i * 0.1,
+                              }}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    message.text
+                  )}
                 </div>
                 {message.isUser && (
                   <div className="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center">
@@ -297,12 +422,25 @@ export default function Chat() {
       {/* Fixed Chatbar at Bottom */}
       <div className="sticky bottom-0 bg-white border-t border-teal-100 py-4">
         <div className="container mx-auto px-4 flex items-center gap-4">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsVoiceMode(!isVoiceMode)}
+            className={`p-3 rounded-full transition-colors ${
+              isVoiceMode 
+                ? 'bg-teal-500 text-white' 
+                : 'bg-slate-100 text-slate-600'
+            }`}
+          >
+            <Mic className="h-5 w-5" />
+          </motion.button>
+
           <input
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyDown={handleKeyPress}
-            placeholder="आपले विचार शेअर करा..."
+            placeholder={isVoiceMode ? "Voice mode enabled..." : "आपले विचार शेअर करा..."}
             disabled={!contextId}
             className="flex-1 px-6 py-3 border border-slate-200 rounded-full focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all disabled:bg-slate-50 disabled:cursor-not-allowed"
           />
