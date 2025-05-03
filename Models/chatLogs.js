@@ -1,7 +1,5 @@
 import mongoose from 'mongoose';
 
-
-
 //NLP SUCIDE DETECTION WILL NOT WORK IN MULTIUSER ENVIRONMENT WITH THIS SCHEMA
 //WON'T BE ABLE TO STORE CONTEXT OF CHATS IN MUTLIUSER ENV
 const chatLogsSchema = new mongoose.Schema({

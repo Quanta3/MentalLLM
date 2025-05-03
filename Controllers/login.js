@@ -1,4 +1,3 @@
-// controllers/login.js
 import jwt from 'jsonwebtoken';
 import User from '../Models/user.js';
 import comparePass from '../Utils/comparePass.js';

@@ -3,12 +3,6 @@ import mongoose from 'mongoose';
 
 // Create a Schema for the User
 const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true, // Ensures no two users can have the same username
-    trim: true,   // Trims any leading or trailing spaces
-  },
   email: {
     type: String,
     required: true,
