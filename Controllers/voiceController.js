@@ -22,6 +22,13 @@ export default async function voiceController(req, res) {
     res.setHeader('Cache-Control', 'no-cache');
     res.flushHeaders();
 
+    const audioDir = path.join(process.cwd(), 'audio');
+
+    // clear out any old audio segments
+  fs.readdirSync(audioDir)
+  .filter(f => f.endsWith('.wav'))
+  .forEach(f => fs.unlinkSync(path.join(audioDir, f)));
+
     // Spawn the Python script
     const scriptPath = path.join(__dirname, 'audio.py');
     const pythonProcess = spawn('python', [scriptPath, `${systemPrompt} User: ${userQuery}`]);
@@ -31,31 +38,31 @@ export default async function voiceController(req, res) {
     });
 
     // Directory to watch for segments
-    const audioDir = path.join(process.cwd(), 'audio');
+    
     let nextIndex = 1;
     let finalFound = false;
 
     // Polling loop: check for files every 500ms
     while (!finalFound) {
-      const fileName =`audio${nextIndex}.wav`;
+      const fileName = `audio${nextIndex}.wav`;
       const filePath = path.join(audioDir, fileName);
-      const finalPath = path.join(audioDir, 'final.wav')
-
+      const finalPath = path.join(audioDir, 'final.wav');
+    
       if (fs.existsSync(filePath)) {
         const fileData = fs.readFileSync(filePath).toString('base64');
-        // send SSE event with base64-encoded audio chunk
+        
+        // Send index + audio chunk as JSON
         res.write(`event: audio\n`);
-        res.write(`data: ${fileData}\n\n`);
-        nextIndex += 1
-      }
-      else if (fs.existsSync(finalPath)) {
-          finalFound = true;
-        } 
-      else {
-        // wait briefly before retrying
+        res.write(`data: ${JSON.stringify({ index: nextIndex, audio: fileData })}\n\n`);
+        
+        nextIndex += 1;
+      } else if (fs.existsSync(finalPath)) {
+        finalFound = true;
+      } else {
         await new Promise((r) => setTimeout(r, 500));
       }
     }
+    
 
     // Wait for Python script to exit
     await new Promise((resolve) => pythonProcess.on('close', resolve));
