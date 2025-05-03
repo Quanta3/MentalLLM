@@ -9,7 +9,6 @@ const chatLogsSchema = new mongoose.Schema({
   },
   chatHistory: {
     type:[String],
-    required: true,
   },
   location: {
     latitude: { type: Number },

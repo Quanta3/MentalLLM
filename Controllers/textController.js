@@ -15,9 +15,6 @@ const textController = async (req, res) => {
   }
 
   
- 
-
-
 
   try {
     // Get the system prompt from the environment
