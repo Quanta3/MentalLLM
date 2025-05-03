@@ -9,12 +9,24 @@ interface LocationData {
   ipAddress: string;
 }
 
+interface Message {
+  text: string;
+  isUser: boolean;
+}
+
 export default function Chat() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [messages, setMessages] = useState<string[]>([])
+  const [messages, setMessages] = useState<Message[]>([])
   const [contextId, setContextId] = useState<string | null>(null)
+  const [inputText, setInputText] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    // Restore contextId from localStorage if exists
+    const savedContextId = localStorage.getItem('contextId');
+    if (savedContextId) {
+      setContextId(savedContextId);
+    }
     const initializeUserContext = async () => {
       try {
         // Get IP Address
@@ -94,6 +106,43 @@ export default function Chat() {
 
     initializeUserContext();
   }, []);
+
+  const sendMessage = async () => {
+    if (!inputText.trim() || !contextId) return;
+
+    const userMessage = { text: inputText, isUser: true };
+    setMessages(prev => [...prev, userMessage]);
+    setInputText("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/user/query/text`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          uuid: contextId,
+          userQuery: inputText
+        })
+      });
+
+      const data = await response.json();
+      const botMessage = { text: data.response, isUser: false };
+      setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error('Error sending message:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
 
   const activities = [
     { 
@@ -194,7 +243,54 @@ export default function Chat() {
             </div>
           </div>
         ) : (
-          <div>// messages list</div>
+          <div className="max-w-4xl mx-auto space-y-4 px-4">
+            {messages.map((message, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`flex ${message.isUser ? 'justify-end' : 'justify-start'} items-end gap-2`}
+              >
+                {!message.isUser && (
+                  <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center">
+                    <Heart className="h-4 w-4 text-teal-600" />
+                  </div>
+                )}
+                <div
+                  className={`max-w-[70%] px-4 py-2 rounded-2xl ${
+                    message.isUser
+                      ? 'bg-teal-500 text-white rounded-br-none'
+                      : 'bg-gray-100 text-slate-800 rounded-bl-none'
+                  }`}
+                >
+                  {message.text}
+                </div>
+                {message.isUser && (
+                  <div className="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center">
+                    <UserPlus className="h-4 w-4 text-white" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+            {isLoading && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex justify-start items-end gap-2"
+              >
+                <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center">
+                  <Heart className="h-4 w-4 text-teal-600" />
+                </div>
+                <div className="bg-gray-100 px-4 py-2 rounded-2xl rounded-bl-none">
+                  <div className="flex gap-1">
+                    <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                    <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                    <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></span>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
         )}
       </div>
 
@@ -203,16 +299,22 @@ export default function Chat() {
         <div className="container mx-auto px-4 flex items-center gap-4">
           <input
             type="text"
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            onKeyDown={handleKeyPress}
             placeholder="आपले विचार शेअर करा..."
-            className="flex-1 px-6 py-3 border border-slate-200 rounded-full focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all"
+            disabled={!contextId}
+            className="flex-1 px-6 py-3 border border-slate-200 rounded-full focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all disabled:bg-slate-50 disabled:cursor-not-allowed"
           />
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-full transition-colors"
+            onClick={sendMessage}
+            disabled={!contextId || !inputText.trim()}
+            className="flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-full transition-colors disabled:bg-slate-300 disabled:cursor-not-allowed"
           >
-            <Mic className="h-5 w-5" />
-            व्हॉइस
+            <MessageCircle className="h-5 w-5" />
+            पाठवा
           </motion.button>
         </div>
       </div>
