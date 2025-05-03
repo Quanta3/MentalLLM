@@ -10,6 +10,7 @@ const textController = async (req, res) => {
   const { userQuery } = req.body;
 
   console.log(api_key)
+  console.log(req.body.userQuery)
   if (!userQuery) {
     return res.status(400).json({ error: 'Query is required' });
   }

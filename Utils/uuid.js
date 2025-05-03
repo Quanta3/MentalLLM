@@ -17,6 +17,7 @@ const updateContext = (id, newData) => {
     const existing = contextStore.get(id);
     const oldData = existing.data;
     contextStore.set(id, { ...existing, data: oldData + "\n" +newData });
+    return existing.data
   }
 };
 
