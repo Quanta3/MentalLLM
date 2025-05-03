@@ -15,9 +15,11 @@ const getContext = (id) => {
 const updateContext = (id, newData) => {
   if (contextStore.has(id)) {
     const existing = contextStore.get(id);
-    const oldData = existing.data;
-    contextStore.set(id, { ...existing, data: oldData + "\n" +newData });
-    return existing.data
+    existing.data = existing.data + "\n" + newData;
+    contextStore.set(id, existing);
+  } else {
+    // Initialize context if it does not exist
+    contextStore.set(id, { data: newData, createdAt: Date.now() });
   }
 };
 

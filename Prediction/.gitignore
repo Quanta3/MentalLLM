@@ -5,3 +5,4 @@ training_metrics*
 *.h5
 suicide_detection_model_saved
 *.png
+.venv

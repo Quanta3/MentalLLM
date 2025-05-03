@@ -3,8 +3,8 @@
 import ChatLog from '../Models/chatLogs.js';
 import evaluateRisk from './evaluateRisk.js'; // adjust path if needed
 
-const saveChatLog = async ({ uuid, userQuery, location }) => {
-  const chat = userQuery
+const saveChatLog = async ({ uuid, userQuery, location, ipAddress }) => {
+  const chat = userQuery;
   try {
     if (!uuid || typeof uuid !== 'string') {
       throw new Error('UUID is required');
@@ -37,12 +37,14 @@ const saveChatLog = async ({ uuid, userQuery, location }) => {
       existingLog.suicideRiskPercent = suicideRiskPercent;
       existingLog.riskLevel = riskLevel;
       if (location) existingLog.location = location;
+      if (ipAddress) existingLog.ipAddress = ipAddress; // new handling
       chatLog = await existingLog.save();
     } else {
       chatLog = new ChatLog({
         uuid,
         chatHistory: updatedChatHistory,
         location: location || undefined,
+        ipAddress: ipAddress || undefined, // new field
         suicideRiskPercent,
         riskLevel,
       });

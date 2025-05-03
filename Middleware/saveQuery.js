@@ -15,13 +15,11 @@ const saveQuery = async (req, res, next) => {
     uuidClass.updateContext(uuid, userQuery); // Now we know the context exists
     const updatedChat = uuidClass.getContext(uuid);
 
-    
-    
-
     const location = req.body.location || null;
+    const ipAddress = req.ip || null; // new extraction
 
     // Persist only the new message (not full context) in chat log
-    await saveChat({ uuid, userQuery, location });
+    await saveChat({ uuid, userQuery, location, ipAddress });
 
     // Overwrite userQuery to include full context for model input
     req.body.userQuery = updatedChat;

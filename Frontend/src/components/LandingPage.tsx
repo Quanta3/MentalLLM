@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Heart, Sparkles, Sun, Moon, MessageCircle, Calendar, ArrowRight, Menu, X } from "lucide-react"
+import { Heart, Sparkles, Sun, Moon, MessageCircle, Calendar, ArrowRight, Menu, X, LogIn } from "lucide-react"
+import { usePage } from "../context/PageContext"
 
 export default function LandingPage() {
+  const { setPage } = usePage()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeTestimonial, setActiveTestimonial] = useState(0)
 
@@ -17,24 +19,24 @@ export default function LandingPage() {
 
   const testimonials = [
     {
-      name: "Sarah J.",
-      role: "Therapy Client",
+      name: "सारा जे.",
+      role: "थेरपी क्लायंट",
       content:
-        "This platform transformed my approach to mental wellness. The guided meditations helped me develop a daily practice that's been life-changing.",
+        "या प्लॅटफॉर्मने मानसिक आरोग्याकडे पाहण्याचा माझा दृष्टिकोन बदलला. मार्गदर्शित ध्यानधारणेने मला दैनंदिन सराव विकसित करण्यात मदत केली जी जीवन बदलणारी ठरली.",
       avatar: "/placeholder.svg?height=80&width=80",
     },
     {
-      name: "Michael T.",
-      role: "Anxiety Management",
+      name: "माइकल टी.",
+      role: "चिंता व्यवस्थापन",
       content:
-        "After struggling with anxiety for years, the resources and support I found here gave me practical tools I use every day. Highly recommend!",
+        "अनेक वर्षे चिंतेशी झगडल्यानंतर, येथे मिळालेले संसाधने आणि समर्थन यांनी मला दररोज वापरण्यासाठी व्यावहारिक साधने दिली. अत्यंत शिफारस करतो!",
       avatar: "/placeholder.svg?height=80&width=80",
     },
     {
-      name: "Priya K.",
-      role: "Wellness Journey",
+      name: "प्रिया के.",
+      role: "आरोग्य प्रवास",
       content:
-        "The therapist matching service connected me with someone who truly understands my needs. The entire experience has been seamless and supportive.",
+        "थेरपिस्ट मॅचिंग सेवेने मला अशा व्यक्तीशी जोडले जो माझ्या गरजा खरोखर समजतो. संपूर्ण अनुभव सहज आणि सहाय्यक राहिला आहे.",
       avatar: "/placeholder.svg?height=80&width=80",
     },
   ]
@@ -85,24 +87,24 @@ export default function LandingPage() {
             <motion.div whileHover={{ rotate: 10 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
               <Heart className="h-8 w-8 text-teal-500" />
             </motion.div>
-            <span className="font-bold text-xl text-teal-700">Serene Mind</span>
+            <span className="font-bold text-xl text-teal-700">विश्वमित्र</span>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
             <a href="#" className="text-slate-600 hover:text-teal-600 transition-colors">
-              Home
+              मुख्यपृष्ठ
             </a>
             <a href="#services" className="text-slate-600 hover:text-teal-600 transition-colors">
-              Services
+              सेवा
             </a>
             <a href="#about" className="text-slate-600 hover:text-teal-600 transition-colors">
-              About
+              आमच्याबद्दल
             </a>
             <a href="#testimonials" className="text-slate-600 hover:text-teal-600 transition-colors">
-              Testimonials
+              अभिप्राय
             </a>
             <a href="#contact" className="text-slate-600 hover:text-teal-600 transition-colors">
-              Contact
+              संपर्क
             </a>
           </div>
 
@@ -134,19 +136,19 @@ export default function LandingPage() {
             >
               <div className="flex flex-col px-4 py-4 space-y-4 bg-white border-t border-teal-100">
                 <a href="#" className="text-slate-600 hover:text-teal-600 transition-colors">
-                  Home
+                  मुख्यपृष्ठ
                 </a>
                 <a href="#services" className="text-slate-600 hover:text-teal-600 transition-colors">
-                  Services
+                  सेवा
                 </a>
                 <a href="#about" className="text-slate-600 hover:text-teal-600 transition-colors">
-                  About
+                  आमच्याबद्दल
                 </a>
                 <a href="#testimonials" className="text-slate-600 hover:text-teal-600 transition-colors">
-                  Testimonials
+                  अभिप्राय
                 </a>
                 <a href="#contact" className="text-slate-600 hover:text-teal-600 transition-colors">
-                  Contact
+                  संपर्क
                 </a>
                 <button className="flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-5 py-2 rounded-full transition-colors">
                   Get Started
@@ -216,22 +218,22 @@ export default function LandingPage() {
                 className="inline-block px-4 py-1 rounded-full bg-teal-100 text-teal-700 text-sm font-medium"
                 whileHover={{ scale: 1.05 }}
               >
-                Your Journey to Wellness Begins Here
+                तुमचा आरोग्य प्रवास येथे सुरू होतो
               </motion.span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-800">
-                Find Your <span className="text-teal-600">Inner Peace</span> and Mental Clarity
+                तुमची <span className="text-teal-600">आंतरिक शांती</span> आणि मानसिक स्पष्टता शोधा
               </h1>
               <p className="text-lg text-slate-600">
-                Our platform provides personalized mental health resources, expert guidance, and a supportive community
-                to help you thrive.
+                आमचे प्लॅटफॉर्म वैयक्तिक मानसिक आरोग्य संसाधने, तज्ञ मार्गदर्शन आणि सहाय्यक समुदाय प्रदान करते.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => setPage('chat')}
                   className="flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-full transition-colors"
                 >
-                  Start Your Journey
+                  प्रवास सुरू करा
                   <ArrowRight className="h-5 w-5" />
                 </motion.button>
                 <motion.button
@@ -239,7 +241,7 @@ export default function LandingPage() {
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center justify-center gap-2 border border-slate-300 hover:border-teal-500 hover:text-teal-600 px-8 py-3 rounded-full transition-colors"
                 >
-                  Learn More
+                  अधिक जाणून घ्या
                 </motion.button>
               </div>
               <div className="flex items-center justify-center gap-4 pt-6">
@@ -274,12 +276,11 @@ export default function LandingPage() {
             variants={fadeIn}
           >
             <span className="inline-block px-4 py-1 rounded-full bg-teal-100 text-teal-700 text-sm font-medium mb-4">
-              Our Services
+              आमच्या सेवा
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Comprehensive Mental Health Support</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">संपूर्ण मानसिक आरोग्य समर्थन</h2>
             <p className="text-lg text-slate-600">
-              We offer a range of services designed to support your mental health journey, from therapy to self-guided
-              resources.
+              आम्ही तुमच्या मानसिक आरोग्य प्रवासाला समर्थन देण्यासाठी डिझाइन केलेल्या सेवा प्रदान करतो, थेरपीपासून स्व-मार्गदर्शित संसाधनांपर्यंत.
             </p>
           </motion.div>
 
@@ -293,38 +294,38 @@ export default function LandingPage() {
             {[
               {
                 icon: <MessageCircle className="h-10 w-10 text-teal-500" />,
-                title: "Online Therapy",
+                title: "२४/७ एआय चॅटबॉट",
                 description:
-                  "Connect with licensed therapists through secure video sessions tailored to your schedule and needs.",
+                  "आमचा AI चॅटबॉट तुमच्याशी मराठीत संवाद साधेल आणि तुम्हाला तुमच्या भावना व्यक्त करण्यास मदत करेल.",
               },
               {
                 icon: <Sparkles className="h-10 w-10 text-purple-500" />,
-                title: "Guided Meditation",
+                title: "भावनिक विश्लेषण",
                 description:
-                  "Access a library of guided meditations designed to reduce stress, improve focus, and promote better sleep.",
-              },
-              {
-                icon: <Calendar className="h-10 w-10 text-blue-500" />,
-                title: "Wellness Planning",
-                description: "Create personalized wellness plans with goal tracking and regular progress assessments.",
+                  "आमचे प्रगत मॉडेल तुमच्या संभाषणांचे विश्लेषण करून तुमच्या मानसिक स्थितीचे मूल्यांकन करते.",
               },
               {
                 icon: <Heart className="h-10 w-10 text-red-500" />,
-                title: "Support Groups",
+                title: "तात्काळ मदत",
                 description:
-                  "Join moderated support groups focused on specific challenges, connecting with others on similar journeys.",
+                  "गंभीर परिस्थितीत, आमची प्रणाली योग्य अधिकाऱ्यांना सूचित करते आणि तात्काळ मदत सुनिश्चित करते.",
+              },
+              {
+                icon: <Calendar className="h-10 w-10 text-blue-500" />,
+                title: "प्रगती नोंदी",
+                description: "तुमच्या सर्व संभाषणांची सुरक्षित नोंद ठेवली जाते आणि तुमची प्रगती दाखवली जाते.",
               },
               {
                 icon: <Sun className="h-10 w-10 text-amber-500" />,
-                title: "Mood Tracking",
+                title: "गोपनीयता संरक्षण",
                 description:
-                  "Track your emotional patterns with our intuitive tools to identify triggers and measure progress.",
+                  "तुमची सर्व माहिती सुरक्षित आणि गुप्त ठेवली जाते, फक्त आवश्यक असेल तेव्हाच शेअर केली जाते.",
               },
               {
                 icon: <Moon className="h-10 w-10 text-indigo-500" />,
-                title: "Sleep Improvement",
+                title: "२४/७ उपलब्धता",
                 description:
-                  "Discover techniques and programs specifically designed to enhance your sleep quality and patterns.",
+                  "कधीही, कुठेही तुम्हाला मदत हवी असेल तेव्हा आमचा AI सहाय्यक तुमच्यासाठी उपलब्ध आहे.",
               },
             ].map((service, index) => (
               <motion.div
@@ -402,35 +403,33 @@ export default function LandingPage() {
               variants={fadeIn}
             >
               <span className="inline-block px-4 py-1 rounded-full bg-teal-100 text-teal-700 text-sm font-medium">
-                Our Mission
+                आमचे ध्येय
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
-                Making Mental Health Care Accessible to Everyone
+                प्रत्येकासाठी मानसिक आरोग्य सेवा सुलभ करणे
               </h2>
               <p className="text-lg text-slate-600">
-                We believe that everyone deserves access to quality mental health support. Our platform was created to
-                break down barriers to care, whether they're financial, geographical, or stigma-related.
+                आम्हाला विश्वास आहे की प्रत्येकाला दर्जेदार मानसिक आरोग्य समर्थन मिळायला हवे. आमचा प्लॅटफॉर्म काळजी घेण्याच्या अडथळ्यांना दूर करण्यासाठी तयार केला गेला आहे, ते आर्थिक, भौगोलिक किंवा कलंक-संबंधित असो.
               </p>
               <p className="text-lg text-slate-600">
-                Founded by a team of mental health professionals and technology experts, we combine clinical expertise
-                with innovative digital solutions to create a supportive, effective mental wellness experience.
+                मानसिक आरोग्य व्यावसायिक आणि तंत्रज्ञान तज्ञांच्या टीमने स्थापन केलेले, आम्ही क्लिनिकल कौशल्यासह नाविन्यपूर्ण डिजिटल उपाय एकत्रित करतो जेणेकरून सहाय्यक, प्रभावी मानसिक आरोग्य अनुभव तयार होईल.
               </p>
               <div className="grid grid-cols-2 gap-6 pt-4">
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-teal-600">98%</div>
-                  <p className="text-slate-600">User satisfaction rate</p>
+                  <p className="text-slate-600">वापरकर्ता समाधान दर</p>
                 </div>
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-teal-600">50K+</div>
-                  <p className="text-slate-600">Active monthly users</p>
+                  <p className="text-slate-600">सक्रिय मासिक वापरकर्ते</p>
                 </div>
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-teal-600">200+</div>
-                  <p className="text-slate-600">Licensed therapists</p>
+                  <p className="text-slate-600">लायसन्स प्राप्त थेरपिस्ट</p>
                 </div>
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-teal-600">24/7</div>
-                  <p className="text-slate-600">Support availability</p>
+                  <p className="text-slate-600">समर्थन उपलब्धता</p>
                 </div>
               </div>
             </motion.div>
@@ -449,11 +448,11 @@ export default function LandingPage() {
             variants={fadeIn}
           >
             <span className="inline-block px-4 py-1 rounded-full bg-teal-100 text-teal-700 text-sm font-medium mb-4">
-              Testimonials
+              अभिप्राय
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Stories from Our Community</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">आमच्या समुदायाच्या कथा</h2>
             <p className="text-lg text-slate-600">
-              Hear from people who have transformed their mental wellness journey with our platform.
+              आमच्या प्लॅटफॉर्मसह त्यांच्या मानसिक आरोग्य प्रवासात परिवर्तन घडवून आणलेल्या लोकांकडून ऐका.
             </p>
           </motion.div>
 
@@ -522,9 +521,9 @@ export default function LandingPage() {
           >
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="md:w-2/3 space-y-4">
-                <h2 className="text-3xl md:text-4xl font-bold">Begin Your Wellness Journey Today</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">आजच तुमचा आरोग्य प्रवास सुरू करा</h2>
                 <p className="text-teal-100">
-                  Take the first step toward better mental health. Sign up now and get a free wellness assessment.
+                  चांगल्या मानसिक आरोग्याकडे जाण्यासाठी पहिले पाऊल उचला. आत्ताच साइन अप करा आणि मोफत आरोग्य मूल्यांकन मिळवा.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <motion.button
@@ -532,7 +531,7 @@ export default function LandingPage() {
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center justify-center gap-2 bg-white text-teal-600 hover:bg-teal-50 px-8 py-3 rounded-full transition-colors font-medium"
                   >
-                    Get Started Now
+                    आत्ताच प्रारंभ करा
                     <ArrowRight className="h-5 w-5" />
                   </motion.button>
                   <motion.button
@@ -540,7 +539,7 @@ export default function LandingPage() {
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center justify-center gap-2 border border-white text-white hover:bg-white/10 px-8 py-3 rounded-full transition-colors"
                   >
-                    Schedule a Demo
+                    डेमो शेड्यूल करा
                   </motion.button>
                 </div>
               </div>
@@ -571,7 +570,7 @@ export default function LandingPage() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Heart className="h-6 w-6 text-teal-500" />
-                <span className="font-bold text-xl text-teal-700">Serene Mind</span>
+                <span className="font-bold text-xl text-teal-700">विश्वमित्र</span>
               </div>
               <p className="text-slate-600 mb-4">
                 Empowering you on your journey to mental wellness through accessible, personalized support.
@@ -633,7 +632,18 @@ export default function LandingPage() {
           </div>
 
           <div className="border-t border-slate-200 mt-12 pt-8 text-center text-slate-600 text-sm">
-            <p>&copy; {new Date().getFullYear()} Serene Mind. All rights reserved.</p>
+            <div className="flex justify-center items-center gap-4 mb-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setPage('auth')}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-600 transition-colors"
+              >
+                <LogIn className="h-4 w-4" />
+                Operator Login
+              </motion.button>
+            </div>
+            <p>&copy; {new Date().getFullYear()} विश्वमित्र. All rights reserved.</p>
           </div>
         </div>
       </footer>

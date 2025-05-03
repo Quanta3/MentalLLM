@@ -3,7 +3,7 @@ import ChatLog from '../Models/chatLogs.js';
 
 const startSession = async (req, res) => {
   try {
-    const { latitude, longitude, city } = req.body;
+    const { ipAddress, latitude, longitude, city } = req.body;
 
     if (latitude === undefined || longitude === undefined || !city) {
       return res.status(400).json({ error: 'Latitude, longitude, and city are required' });
@@ -13,6 +13,7 @@ const startSession = async (req, res) => {
     const contextId = uuid.createContext(userContext); // Or just uuid.v4() if that's what you're using
 
     const newChatLog = new ChatLog({
+      ipAddress,
       uuid: contextId,
       chatHistory: [],
       location: { latitude, longitude, city },
