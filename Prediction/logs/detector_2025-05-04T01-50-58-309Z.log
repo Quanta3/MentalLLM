@@ -1,0 +1,252 @@
+=== Detector Service Log Started at 2025-05-04T01:50:58.309Z ===
+
+[2025-05-04T01:50:58.309Z] [INFO] Starting Detector Service with 1 minute interval
+[2025-05-04T01:50:58.309Z] [INFO] Log file: /home/aditya/Projects/MentalLLM/Prediction/logs/detector_2025-05-04T01-50-58-309Z.log
+[2025-05-04T01:50:58.345Z] [INFO] MongoDB Connected: localhost
+[2025-05-04T01:50:58.345Z] [INFO] Detector service started. Will process chats every 1 minutes.
+[2025-05-04T01:50:58.345Z] [INFO] Starting chat processing...
+[2025-05-04T01:50:58.377Z] [INFO] Found 1 chat logs to process
+[2025-05-04T01:50:58.377Z] [INFO] Processing UUID: 40bb5237-30e5-4908-a4e8-424372da61de, IP: ::1
+[2025-05-04T01:50:58.384Z] [INFO] Processing chat log for 40bb5237-30e5-4908-a4e8-424372da61de with 1 messages, total length: 17 chars
+[2025-05-04T01:50:58.384Z] [INFO] Using English model for prediction
+[2025-05-04T01:50:58.385Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:50:58.385Z] [DEBUG] Text length: 17 characters
+[2025-05-04T01:50:58.385Z] [DEBUG] Text snippet: What do you want?
+[2025-05-04T01:50:58.604Z] [ERROR] Python error output: 2025-05-04 07:20:58.604034: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+[2025-05-04T01:50:58.623Z] [ERROR] Python error output: 2025-05-04 07:20:58.623437: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+
+[2025-05-04T01:50:58.645Z] [ERROR] Python error output: WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1746323458.645504   79550 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+
+[2025-05-04T01:50:58.651Z] [ERROR] Python error output: E0000 00:00:1746323458.650930   79550 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+
+[2025-05-04T01:50:58.674Z] [ERROR] Python error output: W0000 00:00:1746323458.674628   79550 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323458.674695   79550 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323458.674698   79550 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323458.674700   79550 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+[2025-05-04T01:50:58.681Z] [ERROR] Python error output: 2025-05-04 07:20:58.681045: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+[2025-05-04T01:51:01.117Z] [ERROR] Python error output: I0000 00:00:1746323461.117587   79550 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 1767 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.6
+
+[2025-05-04T01:51:03.175Z] [ERROR] Python error output: I0000 00:00:1746323463.175144   79630 cuda_dnn.cc:529] Loaded cuDNN version 90300
+
+[2025-05-04T01:51:03.829Z] [DEBUG] Full Python output: Model loaded successfully from .keras format!
+Suicide Risk Detection Model
+Enter your text (use multiple lines if needed)
+Type 'END' on a new line to finish input
+
+Enter text to analyze:
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 818ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 828ms/step
+
+Prediction: non-suicide
+Confidence: 67.61%
+Raw probability: 0.3239
+
+️ 🟩This text doesn't strongly indicate suicidal Tendencies
+
+[2025-05-04T01:51:03.830Z] [INFO] Prediction result: non-suicide, Confidence: 67.61%, Risk: 32.39%
+[2025-05-04T01:51:03.838Z] [INFO] Updated ChatLog with suicideRiskPercent: 32.39%, riskLevel: low
+[2025-05-04T01:51:03.843Z] [INFO] Created PredictionResult record: 6816c80726a4dd4ceb58cd6e
+[2025-05-04T01:51:03.844Z] [INFO] Successfully processed 40bb5237-30e5-4908-a4e8-424372da61de: Risk 32.39%, Level: low, Model: english
+[2025-05-04T01:51:03.844Z] [INFO] Finished processing all chat logs
+[2025-05-04T01:52:03.845Z] [INFO] Running scheduled chat processing...
+[2025-05-04T01:52:03.845Z] [INFO] Starting chat processing...
+[2025-05-04T01:52:03.861Z] [INFO] Found 4 chat logs to process
+[2025-05-04T01:52:03.862Z] [INFO] Processing UUID: ef9dc22d-d5d1-46d7-bdd9-829e966188cd, IP: ::1
+[2025-05-04T01:52:03.865Z] [INFO] Processing chat log for ef9dc22d-d5d1-46d7-bdd9-829e966188cd with 1 messages, total length: 15 chars
+[2025-05-04T01:52:03.865Z] [INFO] Using English model for prediction
+[2025-05-04T01:52:03.866Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:52:03.866Z] [DEBUG] Text length: 15 characters
+[2025-05-04T01:52:03.866Z] [DEBUG] Text snippet: Wtf do you want
+[2025-05-04T01:52:04.169Z] [ERROR] Python error output: 2025-05-04 07:22:04.169038: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+[2025-05-04T01:52:04.189Z] [ERROR] Python error output: 2025-05-04 07:22:04.187428: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+
+[2025-05-04T01:52:04.217Z] [ERROR] Python error output: WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1746323524.217255   79987 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+
+[2025-05-04T01:52:04.226Z] [ERROR] Python error output: E0000 00:00:1746323524.226367   79987 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+
+[2025-05-04T01:52:04.253Z] [ERROR] Python error output: W0000 00:00:1746323524.251890   79987 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323524.251935   79987 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323524.251938   79987 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323524.251939   79987 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+[2025-05-04T01:52:04.259Z] [ERROR] Python error output: 2025-05-04 07:22:04.258900: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+[2025-05-04T01:52:06.863Z] [ERROR] Python error output: I0000 00:00:1746323526.863344   79987 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 1767 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.6
+
+[2025-05-04T01:52:09.077Z] [ERROR] Python error output: I0000 00:00:1746323529.077106   80070 cuda_dnn.cc:529] Loaded cuDNN version 90300
+
+[2025-05-04T01:52:09.802Z] [DEBUG] Full Python output: Model loaded successfully from .keras format!
+Suicide Risk Detection Model
+Enter your text (use multiple lines if needed)
+Type 'END' on a new line to finish input
+
+Enter text to analyze:
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 831ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 841ms/step
+
+Prediction: non-suicide
+Confidence: 84.11%
+Raw probability: 0.1589
+
+️ 🟩This text doesn't strongly indicate suicidal Tendencies
+
+[2025-05-04T01:52:09.802Z] [INFO] Prediction result: non-suicide, Confidence: 84.11%, Risk: 15.89%
+[2025-05-04T01:52:09.806Z] [INFO] Updated ChatLog with suicideRiskPercent: 15.89%, riskLevel: low
+[2025-05-04T01:52:09.810Z] [INFO] Created PredictionResult record: 6816c84926a4dd4ceb58cd73
+[2025-05-04T01:52:09.810Z] [INFO] Successfully processed ef9dc22d-d5d1-46d7-bdd9-829e966188cd: Risk 15.89%, Level: low, Model: english
+[2025-05-04T01:52:09.810Z] [INFO] Processing UUID: 8178dca9-81f1-4a01-90e9-c5490d852861, IP: 152.57.55.31
+[2025-05-04T01:52:09.816Z] [INFO] Processing chat log for 8178dca9-81f1-4a01-90e9-c5490d852861 with 0 messages, total length: 0 chars
+[2025-05-04T01:52:09.816Z] [INFO] Using English model for prediction
+[2025-05-04T01:52:09.816Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:52:09.816Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:52:09.816Z] [DEBUG] Text snippet: 
+[2025-05-04T01:52:10.027Z] [ERROR] Python error output: 2025-05-04 07:22:10.026630: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+[2025-05-04T01:52:10.037Z] [ERROR] Python error output: 2025-05-04 07:22:10.036803: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+
+[2025-05-04T01:52:10.052Z] [ERROR] Python error output: WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1746323530.052187   80212 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+
+[2025-05-04T01:52:10.055Z] [ERROR] Python error output: E0000 00:00:1746323530.055726   80212 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+
+[2025-05-04T01:52:10.066Z] [ERROR] Python error output: W0000 00:00:1746323530.066350   80212 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323530.066404   80212 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323530.066408   80212 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323530.066409   80212 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+[2025-05-04T01:52:10.071Z] [ERROR] Python error output: 2025-05-04 07:22:10.070886: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+[2025-05-04T01:52:12.955Z] [ERROR] Python error output: I0000 00:00:1746323532.955763   80212 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 1767 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.6
+
+[2025-05-04T01:52:15.142Z] [ERROR] Python error output: I0000 00:00:1746323535.142410   80285 cuda_dnn.cc:529] Loaded cuDNN version 90300
+
+[2025-05-04T01:52:15.981Z] [DEBUG] Full Python output: Model loaded successfully from .keras format!
+Suicide Risk Detection Model
+Enter your text (use multiple lines if needed)
+Type 'END' on a new line to finish input
+
+Enter text to analyze:
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 902ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 915ms/step
+
+Prediction: suicide
+Confidence: 82.72%
+Raw probability: 0.8272
+
+🟥This text indicates SUICIDAL Tendencies
+
+[2025-05-04T01:52:15.981Z] [INFO] Prediction result: suicide, Confidence: 82.72%, Risk: 82.72%
+[2025-05-04T01:52:15.986Z] [INFO] Updated ChatLog with suicideRiskPercent: 82.72%, riskLevel: high
+[2025-05-04T01:52:15.990Z] [INFO] Created PredictionResult record: 6816c84f26a4dd4ceb58cd77
+[2025-05-04T01:52:15.990Z] [INFO] Successfully processed 8178dca9-81f1-4a01-90e9-c5490d852861: Risk 82.72%, Level: high, Model: english
+[2025-05-04T01:52:15.990Z] [INFO] Processing UUID: e8b00dc2-3ea8-4809-8022-78777578b943, IP: 152.57.55.31
+[2025-05-04T01:52:15.995Z] [INFO] Processing chat log for e8b00dc2-3ea8-4809-8022-78777578b943 with 0 messages, total length: 0 chars
+[2025-05-04T01:52:15.995Z] [INFO] Using English model for prediction
+[2025-05-04T01:52:15.995Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:52:15.995Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:52:15.995Z] [DEBUG] Text snippet: 
+[2025-05-04T01:52:16.218Z] [ERROR] Python error output: 2025-05-04 07:22:16.217905: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+[2025-05-04T01:52:16.229Z] [ERROR] Python error output: 2025-05-04 07:22:16.229358: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+
+[2025-05-04T01:52:16.247Z] [ERROR] Python error output: WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1746323536.247009   80426 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+
+[2025-05-04T01:52:16.252Z] [ERROR] Python error output: E0000 00:00:1746323536.250755   80426 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+
+[2025-05-04T01:52:16.260Z] [ERROR] Python error output: W0000 00:00:1746323536.260555   80426 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323536.260637   80426 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323536.260648   80426 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323536.260650   80426 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+[2025-05-04T01:52:16.264Z] [ERROR] Python error output: 2025-05-04 07:22:16.263992: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+[2025-05-04T01:52:19.076Z] [ERROR] Python error output: I0000 00:00:1746323539.075685   80426 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 1767 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.6
+
+[2025-05-04T01:52:21.517Z] [ERROR] Python error output: I0000 00:00:1746323541.517218   80484 cuda_dnn.cc:529] Loaded cuDNN version 90300
+
+[2025-05-04T01:52:22.452Z] [DEBUG] Full Python output: Model loaded successfully from .keras format!
+Suicide Risk Detection Model
+Enter your text (use multiple lines if needed)
+Type 'END' on a new line to finish input
+
+Enter text to analyze:
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1s/step
+
+Prediction: suicide
+Confidence: 82.72%
+Raw probability: 0.8272
+
+🟥This text indicates SUICIDAL Tendencies
+
+[2025-05-04T01:52:22.452Z] [INFO] Prediction result: suicide, Confidence: 82.72%, Risk: 82.72%
+[2025-05-04T01:52:22.457Z] [INFO] Updated ChatLog with suicideRiskPercent: 82.72%, riskLevel: high
+[2025-05-04T01:52:22.462Z] [INFO] Created PredictionResult record: 6816c85626a4dd4ceb58cd7b
+[2025-05-04T01:52:22.462Z] [INFO] Successfully processed e8b00dc2-3ea8-4809-8022-78777578b943: Risk 82.72%, Level: high, Model: english
+[2025-05-04T01:52:22.462Z] [INFO] Processing UUID: 40bb5237-30e5-4908-a4e8-424372da61de, IP: ::1
+[2025-05-04T01:52:22.466Z] [INFO] Processing chat log for 40bb5237-30e5-4908-a4e8-424372da61de with 1 messages, total length: 17 chars
+[2025-05-04T01:52:22.466Z] [INFO] Using English model for prediction
+[2025-05-04T01:52:22.466Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:52:22.466Z] [DEBUG] Text length: 17 characters
+[2025-05-04T01:52:22.466Z] [DEBUG] Text snippet: What do you want?
+[2025-05-04T01:52:22.689Z] [ERROR] Python error output: 2025-05-04 07:22:22.689234: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+[2025-05-04T01:52:22.701Z] [ERROR] Python error output: 2025-05-04 07:22:22.700876: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+
+[2025-05-04T01:52:22.720Z] [ERROR] Python error output: WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1746323542.720398   80618 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+
+[2025-05-04T01:52:22.725Z] [ERROR] Python error output: E0000 00:00:1746323542.725534   80618 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+
+[2025-05-04T01:52:22.738Z] [ERROR] Python error output: W0000 00:00:1746323542.737922   80618 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323542.737979   80618 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323542.737982   80618 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323542.737984   80618 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+[2025-05-04T01:52:22.744Z] [ERROR] Python error output: 2025-05-04 07:22:22.743909: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+[2025-05-04T01:52:25.682Z] [ERROR] Python error output: I0000 00:00:1746323545.682075   80618 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 1767 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.6
+
+[2025-05-04T01:52:28.593Z] [ERROR] Python error output: I0000 00:00:1746323548.593001   80683 cuda_dnn.cc:529] Loaded cuDNN version 90300
+
+[2025-05-04T01:52:29.433Z] [DEBUG] Full Python output: Model loaded successfully from .keras format!
+Suicide Risk Detection Model
+Enter your text (use multiple lines if needed)
+Type 'END' on a new line to finish input
+
+Enter text to analyze:
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 951ms/step[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 962ms/step
+
+Prediction: non-suicide
+Confidence: 67.61%
+Raw probability: 0.3239
+
+️ 🟩This text doesn't strongly indicate suicidal Tendencies
+
+[2025-05-04T01:52:29.433Z] [INFO] Prediction result: non-suicide, Confidence: 67.61%, Risk: 32.39%
+[2025-05-04T01:52:29.438Z] [INFO] Updated ChatLog with suicideRiskPercent: 32.39%, riskLevel: low
+[2025-05-04T01:52:29.441Z] [INFO] Created PredictionResult record: 6816c85d26a4dd4ceb58cd7f
+[2025-05-04T01:52:29.442Z] [INFO] Successfully processed 40bb5237-30e5-4908-a4e8-424372da61de: Risk 32.39%, Level: low, Model: english
+[2025-05-04T01:52:29.442Z] [INFO] Finished processing all chat logs
+[2025-05-04T01:53:03.848Z] [INFO] Running scheduled chat processing...
+[2025-05-04T01:53:03.848Z] [INFO] Starting chat processing...
+[2025-05-04T01:53:03.852Z] [INFO] Found 4 chat logs to process
+[2025-05-04T01:53:03.852Z] [INFO] Processing UUID: ef9dc22d-d5d1-46d7-bdd9-829e966188cd, IP: ::1
+[2025-05-04T01:53:03.856Z] [INFO] Skipping ef9dc22d-d5d1-46d7-bdd9-829e966188cd - already processed at 2025-05-04T01:51:57.428Z
+[2025-05-04T01:53:03.856Z] [INFO] Processing UUID: 8178dca9-81f1-4a01-90e9-c5490d852861, IP: 152.57.55.31
+[2025-05-04T01:53:03.859Z] [INFO] Skipping 8178dca9-81f1-4a01-90e9-c5490d852861 - already processed at 2025-05-04T01:51:48.718Z
+[2025-05-04T01:53:03.859Z] [INFO] Processing UUID: e8b00dc2-3ea8-4809-8022-78777578b943, IP: 152.57.55.31
+[2025-05-04T01:53:03.864Z] [INFO] Skipping e8b00dc2-3ea8-4809-8022-78777578b943 - already processed at 2025-05-04T01:51:47.717Z
+[2025-05-04T01:53:03.865Z] [INFO] Processing UUID: 40bb5237-30e5-4908-a4e8-424372da61de, IP: ::1
+[2025-05-04T01:53:03.877Z] [INFO] Skipping 40bb5237-30e5-4908-a4e8-424372da61de - already processed at 2025-05-04T01:50:28.056Z
+[2025-05-04T01:53:03.877Z] [INFO] Finished processing all chat logs
+[2025-05-04T01:54:00.131Z] [INFO] Received SIGINT. Gracefully shutting down...
+[2025-05-04T01:54:00.132Z] [INFO] Detector service stopped.

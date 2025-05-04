@@ -1,0 +1,753 @@
+=== Detector Service Log Started at 2025-05-04T01:46:33.014Z ===
+
+[2025-05-04T01:46:33.014Z] [INFO] Starting Detector Service with 1 minute interval
+[2025-05-04T01:46:33.014Z] [INFO] Log file: /home/aditya/Projects/MentalLLM/Prediction/logs/detector_2025-05-04T01-46-33-014Z.log
+[2025-05-04T01:46:33.047Z] [INFO] MongoDB Connected: localhost
+[2025-05-04T01:46:33.048Z] [INFO] Detector service started. Will process chats every 1 minutes.
+[2025-05-04T01:46:33.048Z] [INFO] Starting chat processing...
+[2025-05-04T01:46:33.091Z] [INFO] Found 72 chat logs to process
+[2025-05-04T01:46:33.092Z] [INFO] Processing UUID: 906bc66f-8e97-46c5-b652-2d84630f5525, IP: ::1
+[2025-05-04T01:46:33.102Z] [INFO] Processing chat log for 906bc66f-8e97-46c5-b652-2d84630f5525 with 1 messages, total length: 19 chars
+[2025-05-04T01:46:33.103Z] [INFO] Using Marathi model for prediction
+[2025-05-04T01:46:33.103Z] [INFO] Running prediction using predict_marathi.py
+[2025-05-04T01:46:33.103Z] [DEBUG] Text length: 19 characters
+[2025-05-04T01:46:33.103Z] [DEBUG] Text snippet: तुमचं नाव काय आहे?
+
+[2025-05-04T01:46:33.154Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.157Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.162Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.162Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.163Z] [ERROR] Error processing chat log 906bc66f-8e97-46c5-b652-2d84630f5525: Error: Python process failed with code 1
+[2025-05-04T01:46:33.163Z] [INFO] Processing UUID: b55aa786-0d32-4996-8ab9-cd73c2fcbf25, IP: ::1
+[2025-05-04T01:46:33.170Z] [INFO] Processing chat log for b55aa786-0d32-4996-8ab9-cd73c2fcbf25 with 1 messages, total length: 9 chars
+[2025-05-04T01:46:33.170Z] [INFO] Using Marathi model for prediction
+[2025-05-04T01:46:33.170Z] [INFO] Running prediction using predict_marathi.py
+[2025-05-04T01:46:33.170Z] [DEBUG] Text length: 9 characters
+[2025-05-04T01:46:33.170Z] [DEBUG] Text snippet: काय आहे?
+
+[2025-05-04T01:46:33.193Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.194Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.201Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.202Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.202Z] [ERROR] Error processing chat log b55aa786-0d32-4996-8ab9-cd73c2fcbf25: Error: Python process failed with code 1
+[2025-05-04T01:46:33.202Z] [INFO] Processing UUID: ca237fc6-21e6-4377-a4ba-e13feeebc91b, IP: ::1
+[2025-05-04T01:46:33.206Z] [INFO] Processing chat log for ca237fc6-21e6-4377-a4ba-e13feeebc91b with 1 messages, total length: 6 chars
+[2025-05-04T01:46:33.206Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.206Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.206Z] [DEBUG] Text length: 6 characters
+[2025-05-04T01:46:33.206Z] [DEBUG] Text snippet: Hello.
+[2025-05-04T01:46:33.226Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.228Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.233Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.233Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.233Z] [ERROR] Error processing chat log ca237fc6-21e6-4377-a4ba-e13feeebc91b: Error: Python process failed with code 1
+[2025-05-04T01:46:33.233Z] [INFO] Processing UUID: 8475b7ce-dde9-4be7-a406-e34bdf1ba1b7, IP: ::1
+[2025-05-04T01:46:33.237Z] [INFO] Processing chat log for 8475b7ce-dde9-4be7-a406-e34bdf1ba1b7 with 1 messages, total length: 5 chars
+[2025-05-04T01:46:33.237Z] [INFO] Using Marathi model for prediction
+[2025-05-04T01:46:33.237Z] [INFO] Running prediction using predict_marathi.py
+[2025-05-04T01:46:33.237Z] [DEBUG] Text length: 5 characters
+[2025-05-04T01:46:33.237Z] [DEBUG] Text snippet: अण्णा
+[2025-05-04T01:46:33.259Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.263Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.266Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.266Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.266Z] [ERROR] Error processing chat log 8475b7ce-dde9-4be7-a406-e34bdf1ba1b7: Error: Python process failed with code 1
+[2025-05-04T01:46:33.266Z] [INFO] Processing UUID: 5a5ef1a4-67f3-47df-960d-0575a9c0819f, IP: 152.57.55.31
+[2025-05-04T01:46:33.269Z] [INFO] Processing chat log for 5a5ef1a4-67f3-47df-960d-0575a9c0819f with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.269Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.269Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.269Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.269Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.288Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.290Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.296Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.296Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.296Z] [ERROR] Error processing chat log 5a5ef1a4-67f3-47df-960d-0575a9c0819f: Error: Python process failed with code 1
+[2025-05-04T01:46:33.296Z] [INFO] Processing UUID: cf511f42-496c-4d70-879f-c2a40338030f, IP: 152.57.55.31
+[2025-05-04T01:46:33.298Z] [INFO] Processing chat log for cf511f42-496c-4d70-879f-c2a40338030f with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.299Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.299Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.299Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.299Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.320Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.322Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.325Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.326Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.326Z] [ERROR] Error processing chat log cf511f42-496c-4d70-879f-c2a40338030f: Error: Python process failed with code 1
+[2025-05-04T01:46:33.326Z] [INFO] Processing UUID: 8c01e105-0948-4a1a-ad06-2913da08e7ba, IP: 152.57.55.31
+[2025-05-04T01:46:33.331Z] [INFO] Processing chat log for 8c01e105-0948-4a1a-ad06-2913da08e7ba with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.331Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.332Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.332Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.332Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.354Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.356Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.361Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.361Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.361Z] [ERROR] Error processing chat log 8c01e105-0948-4a1a-ad06-2913da08e7ba: Error: Python process failed with code 1
+[2025-05-04T01:46:33.361Z] [INFO] Processing UUID: fb3923c2-fba2-49ed-8ba1-e066aa1cd214, IP: 152.57.55.31
+[2025-05-04T01:46:33.364Z] [INFO] Processing chat log for fb3923c2-fba2-49ed-8ba1-e066aa1cd214 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.364Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.364Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.364Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.364Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.386Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.388Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+
+[2025-05-04T01:46:33.388Z] [ERROR] Python error output: ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.393Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.393Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.393Z] [ERROR] Error processing chat log fb3923c2-fba2-49ed-8ba1-e066aa1cd214: Error: Python process failed with code 1
+[2025-05-04T01:46:33.393Z] [INFO] Processing UUID: d2a23294-a281-40de-ad78-79d10b3e126d, IP: ::1
+[2025-05-04T01:46:33.396Z] [INFO] Processing chat log for d2a23294-a281-40de-ad78-79d10b3e126d with 1 messages, total length: 14 chars
+[2025-05-04T01:46:33.396Z] [INFO] Using Marathi model for prediction
+[2025-05-04T01:46:33.396Z] [INFO] Running prediction using predict_marathi.py
+[2025-05-04T01:46:33.396Z] [DEBUG] Text length: 14 characters
+[2025-05-04T01:46:33.396Z] [DEBUG] Text snippet: हॅलो हॅलो हॅलो
+[2025-05-04T01:46:33.420Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.422Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.427Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.427Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.427Z] [ERROR] Error processing chat log d2a23294-a281-40de-ad78-79d10b3e126d: Error: Python process failed with code 1
+[2025-05-04T01:46:33.427Z] [INFO] Processing UUID: 8a3ee0a0-c36d-48a1-8dd6-d7434890ed8d, IP: ::1
+[2025-05-04T01:46:33.430Z] [INFO] Processing chat log for 8a3ee0a0-c36d-48a1-8dd6-d7434890ed8d with 3 messages, total length: 34 chars
+[2025-05-04T01:46:33.431Z] [INFO] Using Marathi model for prediction
+[2025-05-04T01:46:33.431Z] [INFO] Running prediction using predict_marathi.py
+[2025-05-04T01:46:33.431Z] [DEBUG] Text length: 34 characters
+[2025-05-04T01:46:33.431Z] [DEBUG] Text snippet: एक गोल कसा काढायचा.
+ Yoo bro ka re
+[2025-05-04T01:46:33.452Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.454Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.459Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.459Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.459Z] [ERROR] Error processing chat log 8a3ee0a0-c36d-48a1-8dd6-d7434890ed8d: Error: Python process failed with code 1
+[2025-05-04T01:46:33.459Z] [INFO] Processing UUID: 9642c9b6-18f1-48f6-8c65-0ccb7bb589e3, IP: 152.57.55.31
+[2025-05-04T01:46:33.462Z] [INFO] Processing chat log for 9642c9b6-18f1-48f6-8c65-0ccb7bb589e3 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.462Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.462Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.462Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.462Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.483Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.486Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.490Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.491Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.491Z] [ERROR] Error processing chat log 9642c9b6-18f1-48f6-8c65-0ccb7bb589e3: Error: Python process failed with code 1
+[2025-05-04T01:46:33.491Z] [INFO] Processing UUID: 55455d15-bf91-4541-bf70-312127e5bceb, IP: ::1
+[2025-05-04T01:46:33.495Z] [INFO] Processing chat log for 55455d15-bf91-4541-bf70-312127e5bceb with 3 messages, total length: 38 chars
+[2025-05-04T01:46:33.495Z] [INFO] Using Marathi model for prediction
+[2025-05-04T01:46:33.495Z] [INFO] Running prediction using predict_marathi.py
+[2025-05-04T01:46:33.495Z] [DEBUG] Text length: 38 characters
+[2025-05-04T01:46:33.495Z] [DEBUG] Text snippet: हां एक्झॅक्टली काय आहे?
+ नाव काय आहे?
+
+[2025-05-04T01:46:33.516Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.518Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.523Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.523Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.524Z] [ERROR] Error processing chat log 55455d15-bf91-4541-bf70-312127e5bceb: Error: Python process failed with code 1
+[2025-05-04T01:46:33.524Z] [INFO] Processing UUID: 62a1f709-6d33-45f9-b79b-a70d6aa3010c, IP: 152.57.55.31
+[2025-05-04T01:46:33.527Z] [INFO] Processing chat log for 62a1f709-6d33-45f9-b79b-a70d6aa3010c with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.527Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.527Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.527Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.527Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.548Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.548Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.552Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.552Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.552Z] [ERROR] Error processing chat log 62a1f709-6d33-45f9-b79b-a70d6aa3010c: Error: Python process failed with code 1
+[2025-05-04T01:46:33.552Z] [INFO] Processing UUID: 49841b3f-81b7-4f8a-81f6-a19b66768379, IP: ::1
+[2025-05-04T01:46:33.559Z] [INFO] Processing chat log for 49841b3f-81b7-4f8a-81f6-a19b66768379 with 2 messages, total length: 31 chars
+[2025-05-04T01:46:33.559Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.559Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.560Z] [DEBUG] Text length: 31 characters
+[2025-05-04T01:46:33.560Z] [DEBUG] Text snippet: Tumcha naav kaay aahe?
+ Looks.
+
+[2025-05-04T01:46:33.576Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.578Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.584Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.584Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.584Z] [ERROR] Error processing chat log 49841b3f-81b7-4f8a-81f6-a19b66768379: Error: Python process failed with code 1
+[2025-05-04T01:46:33.584Z] [INFO] Processing UUID: 0a75f4be-4a00-41a6-b689-d10ad1e83bb7, IP: 152.57.55.31
+[2025-05-04T01:46:33.591Z] [INFO] Processing chat log for 0a75f4be-4a00-41a6-b689-d10ad1e83bb7 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.591Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.591Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.591Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.591Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.613Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.616Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.622Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.622Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.622Z] [ERROR] Error processing chat log 0a75f4be-4a00-41a6-b689-d10ad1e83bb7: Error: Python process failed with code 1
+[2025-05-04T01:46:33.622Z] [INFO] Processing UUID: 9263a38b-d327-4abf-a18b-2557e65132c9, IP: 152.57.55.31
+[2025-05-04T01:46:33.625Z] [INFO] Processing chat log for 9263a38b-d327-4abf-a18b-2557e65132c9 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.625Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.625Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.625Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.625Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.646Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.648Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.653Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.653Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.653Z] [ERROR] Error processing chat log 9263a38b-d327-4abf-a18b-2557e65132c9: Error: Python process failed with code 1
+[2025-05-04T01:46:33.653Z] [INFO] Processing UUID: 34378702-bae7-4b9a-8e20-f1c7f7d4926b, IP: 152.57.55.31
+[2025-05-04T01:46:33.656Z] [INFO] Processing chat log for 34378702-bae7-4b9a-8e20-f1c7f7d4926b with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.656Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.656Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.656Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.656Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.678Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.680Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.686Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.687Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.687Z] [ERROR] Error processing chat log 34378702-bae7-4b9a-8e20-f1c7f7d4926b: Error: Python process failed with code 1
+[2025-05-04T01:46:33.687Z] [INFO] Processing UUID: a521e901-6399-43b3-8407-2d78539366c2, IP: ::1
+[2025-05-04T01:46:33.689Z] [INFO] Processing chat log for a521e901-6399-43b3-8407-2d78539366c2 with 5 messages, total length: 36 chars
+[2025-05-04T01:46:33.690Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.690Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.690Z] [DEBUG] Text length: 36 characters
+[2025-05-04T01:46:33.690Z] [DEBUG] Text snippet: Hi there a gente.
+ Hey 물리알레르기 Okay.
+
+[2025-05-04T01:46:33.710Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.712Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.719Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.719Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.719Z] [ERROR] Error processing chat log a521e901-6399-43b3-8407-2d78539366c2: Error: Python process failed with code 1
+[2025-05-04T01:46:33.719Z] [INFO] Processing UUID: 129ae31f-6d72-4339-866b-cf77b4124563, IP: 152.57.55.31
+[2025-05-04T01:46:33.721Z] [INFO] Processing chat log for 129ae31f-6d72-4339-866b-cf77b4124563 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.721Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.721Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.721Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.721Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.745Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.750Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.752Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.752Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.753Z] [ERROR] Error processing chat log 129ae31f-6d72-4339-866b-cf77b4124563: Error: Python process failed with code 1
+[2025-05-04T01:46:33.753Z] [INFO] Processing UUID: 6e6c3c25-b82c-4b4d-b3c8-c489771f5ce6, IP: ::1
+[2025-05-04T01:46:33.756Z] [INFO] Processing chat log for 6e6c3c25-b82c-4b4d-b3c8-c489771f5ce6 with 2 messages, total length: 8 chars
+[2025-05-04T01:46:33.756Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.756Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.756Z] [DEBUG] Text length: 8 characters
+[2025-05-04T01:46:33.756Z] [DEBUG] Text snippet: Hey key.
+[2025-05-04T01:46:33.777Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.783Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.785Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.785Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.785Z] [ERROR] Error processing chat log 6e6c3c25-b82c-4b4d-b3c8-c489771f5ce6: Error: Python process failed with code 1
+[2025-05-04T01:46:33.786Z] [INFO] Processing UUID: f97bbd51-59eb-404f-8278-81a3b0eb00c7, IP: ::1
+[2025-05-04T01:46:33.790Z] [INFO] Processing chat log for f97bbd51-59eb-404f-8278-81a3b0eb00c7 with 1 messages, total length: 6 chars
+[2025-05-04T01:46:33.790Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.790Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.790Z] [DEBUG] Text length: 6 characters
+[2025-05-04T01:46:33.790Z] [DEBUG] Text snippet: bien.
+
+[2025-05-04T01:46:33.810Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.814Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.818Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.818Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.818Z] [ERROR] Error processing chat log f97bbd51-59eb-404f-8278-81a3b0eb00c7: Error: Python process failed with code 1
+[2025-05-04T01:46:33.818Z] [INFO] Processing UUID: d156d82c-3ec4-4257-9d9c-bed4f1d1984d, IP: ::1
+[2025-05-04T01:46:33.821Z] [INFO] Processing chat log for d156d82c-3ec4-4257-9d9c-bed4f1d1984d with 1 messages, total length: 6 chars
+[2025-05-04T01:46:33.821Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.821Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.821Z] [DEBUG] Text length: 6 characters
+[2025-05-04T01:46:33.821Z] [DEBUG] Text snippet: Okay.
+
+[2025-05-04T01:46:33.842Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.846Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.848Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.848Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.848Z] [ERROR] Error processing chat log d156d82c-3ec4-4257-9d9c-bed4f1d1984d: Error: Python process failed with code 1
+[2025-05-04T01:46:33.848Z] [INFO] Processing UUID: 40e621cf-17e0-4fef-a948-af4ba6c18f4e, IP: 152.57.55.31
+[2025-05-04T01:46:33.852Z] [INFO] Processing chat log for 40e621cf-17e0-4fef-a948-af4ba6c18f4e with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.852Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.852Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.852Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.852Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.871Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.873Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.880Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.880Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.880Z] [ERROR] Error processing chat log 40e621cf-17e0-4fef-a948-af4ba6c18f4e: Error: Python process failed with code 1
+[2025-05-04T01:46:33.880Z] [INFO] Processing UUID: 8f4bddac-d474-4ef7-9144-cc6cbce14b44, IP: 152.57.55.31
+[2025-05-04T01:46:33.883Z] [INFO] Processing chat log for 8f4bddac-d474-4ef7-9144-cc6cbce14b44 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.884Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.884Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.884Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.884Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.905Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.907Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.912Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.912Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.913Z] [ERROR] Error processing chat log 8f4bddac-d474-4ef7-9144-cc6cbce14b44: Error: Python process failed with code 1
+[2025-05-04T01:46:33.913Z] [INFO] Processing UUID: b435b506-819d-4b74-8f70-62a26287ff67, IP: 152.57.55.31
+[2025-05-04T01:46:33.916Z] [INFO] Processing chat log for b435b506-819d-4b74-8f70-62a26287ff67 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.916Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.916Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.916Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.916Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.937Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.939Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.944Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.944Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.944Z] [ERROR] Error processing chat log b435b506-819d-4b74-8f70-62a26287ff67: Error: Python process failed with code 1
+[2025-05-04T01:46:33.944Z] [INFO] Processing UUID: faf13ee3-ade4-494d-8746-6294d724de72, IP: 152.57.55.31
+[2025-05-04T01:46:33.947Z] [INFO] Processing chat log for faf13ee3-ade4-494d-8746-6294d724de72 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:33.947Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.947Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.947Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:33.947Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:33.970Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:33.972Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.976Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:33.976Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:33.976Z] [ERROR] Error processing chat log faf13ee3-ade4-494d-8746-6294d724de72: Error: Python process failed with code 1
+[2025-05-04T01:46:33.976Z] [INFO] Processing UUID: 4ca71b76-86c7-451c-ab97-cc314b675591, IP: ::1
+[2025-05-04T01:46:33.978Z] [INFO] Processing chat log for 4ca71b76-86c7-451c-ab97-cc314b675591 with 3 messages, total length: 32 chars
+[2025-05-04T01:46:33.978Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:33.978Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:33.978Z] [DEBUG] Text length: 32 characters
+[2025-05-04T01:46:33.978Z] [DEBUG] Text snippet: Hello Allah is good.
+ the best.
+
+[2025-05-04T01:46:34.001Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.003Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.007Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.007Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.007Z] [ERROR] Error processing chat log 4ca71b76-86c7-451c-ab97-cc314b675591: Error: Python process failed with code 1
+[2025-05-04T01:46:34.008Z] [INFO] Processing UUID: 058d7c1c-d236-4182-8664-6baa9f844667, IP: 152.57.55.31
+[2025-05-04T01:46:34.010Z] [INFO] Processing chat log for 058d7c1c-d236-4182-8664-6baa9f844667 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:34.010Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.010Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.010Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:34.010Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:34.029Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.031Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.036Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.036Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.036Z] [ERROR] Error processing chat log 058d7c1c-d236-4182-8664-6baa9f844667: Error: Python process failed with code 1
+[2025-05-04T01:46:34.036Z] [INFO] Processing UUID: df103f43-f9a9-44ea-ab24-465daf697149, IP: ::1
+[2025-05-04T01:46:34.043Z] [INFO] Processing chat log for df103f43-f9a9-44ea-ab24-465daf697149 with 1 messages, total length: 11 chars
+[2025-05-04T01:46:34.043Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.043Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.043Z] [DEBUG] Text length: 11 characters
+[2025-05-04T01:46:34.043Z] [DEBUG] Text snippet: Hello there
+[2025-05-04T01:46:34.064Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.067Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.074Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.074Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.074Z] [ERROR] Error processing chat log df103f43-f9a9-44ea-ab24-465daf697149: Error: Python process failed with code 1
+[2025-05-04T01:46:34.074Z] [INFO] Processing UUID: 69613164-bcf2-43df-8b9f-975abc2adaeb, IP: ::1
+[2025-05-04T01:46:34.076Z] [INFO] Processing chat log for 69613164-bcf2-43df-8b9f-975abc2adaeb with 1 messages, total length: 26 chars
+[2025-05-04T01:46:34.077Z] [INFO] Using Marathi model for prediction
+[2025-05-04T01:46:34.077Z] [INFO] Running prediction using predict_marathi.py
+[2025-05-04T01:46:34.077Z] [DEBUG] Text length: 26 characters
+[2025-05-04T01:46:34.077Z] [DEBUG] Text snippet: भाई बराबर अटक नहीं है लेकन
+[2025-05-04T01:46:34.096Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.097Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.101Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.101Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.101Z] [ERROR] Error processing chat log 69613164-bcf2-43df-8b9f-975abc2adaeb: Error: Python process failed with code 1
+[2025-05-04T01:46:34.101Z] [INFO] Processing UUID: 445898e9-92f3-4da2-859d-2de58f1d3fbd, IP: ::1
+[2025-05-04T01:46:34.107Z] [INFO] Processing chat log for 445898e9-92f3-4da2-859d-2de58f1d3fbd with 1 messages, total length: 21 chars
+[2025-05-04T01:46:34.107Z] [INFO] Using Marathi model for prediction
+[2025-05-04T01:46:34.107Z] [INFO] Running prediction using predict_marathi.py
+[2025-05-04T01:46:34.107Z] [DEBUG] Text length: 21 characters
+[2025-05-04T01:46:34.107Z] [DEBUG] Text snippet: मला एक गोष्ट सांग ना.
+[2025-05-04T01:46:34.130Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.132Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.137Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.137Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict_marathi.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.137Z] [ERROR] Error processing chat log 445898e9-92f3-4da2-859d-2de58f1d3fbd: Error: Python process failed with code 1
+[2025-05-04T01:46:34.137Z] [INFO] Processing UUID: c4c36b6b-f0f4-4f15-8dd9-2597611c24a7, IP: 152.57.55.31
+[2025-05-04T01:46:34.140Z] [INFO] Processing chat log for c4c36b6b-f0f4-4f15-8dd9-2597611c24a7 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:34.140Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.140Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.140Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:34.140Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:34.161Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.164Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.171Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.171Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.171Z] [ERROR] Error processing chat log c4c36b6b-f0f4-4f15-8dd9-2597611c24a7: Error: Python process failed with code 1
+[2025-05-04T01:46:34.171Z] [INFO] Processing UUID: 0430d297-9f5f-401d-a790-14f6b67a08ee, IP: ::1
+[2025-05-04T01:46:34.174Z] [INFO] Processing chat log for 0430d297-9f5f-401d-a790-14f6b67a08ee with 1 messages, total length: 13 chars
+[2025-05-04T01:46:34.174Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.174Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.174Z] [DEBUG] Text length: 13 characters
+[2025-05-04T01:46:34.174Z] [DEBUG] Text snippet: Hello world.
+
+[2025-05-04T01:46:34.198Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.202Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.205Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.205Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.205Z] [ERROR] Error processing chat log 0430d297-9f5f-401d-a790-14f6b67a08ee: Error: Python process failed with code 1
+[2025-05-04T01:46:34.205Z] [INFO] Processing UUID: 571435b7-54b9-4c43-b7ad-a8f396f315b2, IP: 152.57.55.31
+[2025-05-04T01:46:34.208Z] [INFO] Processing chat log for 571435b7-54b9-4c43-b7ad-a8f396f315b2 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:34.208Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.208Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.208Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:34.208Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:34.230Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.235Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.237Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.237Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.237Z] [ERROR] Error processing chat log 571435b7-54b9-4c43-b7ad-a8f396f315b2: Error: Python process failed with code 1
+[2025-05-04T01:46:34.237Z] [INFO] Processing UUID: b24483a7-912b-4856-8d1d-db1023d2e580, IP: ::1
+[2025-05-04T01:46:34.240Z] [INFO] Processing chat log for b24483a7-912b-4856-8d1d-db1023d2e580 with 1 messages, total length: 6 chars
+[2025-05-04T01:46:34.240Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.240Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.240Z] [DEBUG] Text length: 6 characters
+[2025-05-04T01:46:34.240Z] [DEBUG] Text snippet: Okay.
+
+[2025-05-04T01:46:34.261Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.263Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.268Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.268Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.268Z] [ERROR] Error processing chat log b24483a7-912b-4856-8d1d-db1023d2e580: Error: Python process failed with code 1
+[2025-05-04T01:46:34.268Z] [INFO] Processing UUID: 9db95d0a-c626-4fda-9d17-3214b0b16de4, IP: 152.57.55.31
+[2025-05-04T01:46:34.270Z] [INFO] Processing chat log for 9db95d0a-c626-4fda-9d17-3214b0b16de4 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:34.270Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.270Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.270Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:34.270Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:34.293Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.299Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.303Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.304Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.304Z] [ERROR] Error processing chat log 9db95d0a-c626-4fda-9d17-3214b0b16de4: Error: Python process failed with code 1
+[2025-05-04T01:46:34.304Z] [INFO] Processing UUID: a1ee64dc-3210-4ed0-a398-7d1c75a99323, IP: ::1
+[2025-05-04T01:46:34.306Z] [INFO] Processing chat log for a1ee64dc-3210-4ed0-a398-7d1c75a99323 with 1 messages, total length: 7 chars
+[2025-05-04T01:46:34.306Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.306Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.306Z] [DEBUG] Text length: 7 characters
+[2025-05-04T01:46:34.306Z] [DEBUG] Text snippet: Unico.
+
+[2025-05-04T01:46:34.328Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.332Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.336Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.336Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.336Z] [ERROR] Error processing chat log a1ee64dc-3210-4ed0-a398-7d1c75a99323: Error: Python process failed with code 1
+[2025-05-04T01:46:34.336Z] [INFO] Processing UUID: 6f4d2bc8-7519-41d8-8277-8a767cf092a4, IP: 152.57.55.31
+[2025-05-04T01:46:34.339Z] [INFO] Processing chat log for 6f4d2bc8-7519-41d8-8277-8a767cf092a4 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:34.339Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.339Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.339Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:34.339Z] [DEBUG] Text snippet: 
+[2025-05-04T01:46:34.359Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:46:34.360Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.365Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:46:34.365Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:46:34.365Z] [ERROR] Error processing chat log 6f4d2bc8-7519-41d8-8277-8a767cf092a4: Error: Python process failed with code 1
+[2025-05-04T01:46:34.365Z] [INFO] Processing UUID: 7246305f-e511-4446-ba2d-dd91aaa88882, IP: 152.57.55.31
+[2025-05-04T01:46:34.368Z] [INFO] Processing chat log for 7246305f-e511-4446-ba2d-dd91aaa88882 with 0 messages, total length: 0 chars
+[2025-05-04T01:46:34.368Z] [INFO] Using English model for prediction
+[2025-05-04T01:46:34.368Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:46:34.368Z] [DEBUG] Text length: 0 characters
+[2025-05-04T01:46:34.368Z] [DEBUG] Text snippet: 

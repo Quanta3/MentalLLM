@@ -52,34 +52,30 @@ def main():
     
     print("Suicide Risk Detection Model")
     print("Enter your text (use multiple lines if needed)")
-    print("Type 'END' on a new line to finish input")
-    print("Type 'quit' or 'exit' to end the program\n")
+    print("Type 'END' on a new line to finish input\n")
     
+    print("Enter text to analyze:")
+    lines = []
     while True:
-        print("\nEnter text to analyze:")
-        lines = []
-        while True:
-            line = input()
-            if line.strip().upper() == 'END':
-                break
-            if line.strip().lower() in ['quit', 'exit']:
-                return
-            lines.append(line)
+        line = input()
+        if line.strip().upper() == 'END':
+            break
+        lines.append(line)
+    
+    if not lines:
+        return
         
-        if not lines:
-            continue
-            
-        user_input = '\n'.join(lines)
-        prediction, label, confidence = predict_text(model, user_input)
-        
-        print(f"\nPrediction: {label}")
-        print(f"Confidence: {confidence:.2%}")
-        print(f"Raw probability: {prediction:.4f}")
-        
-        if label == "suicide":
-            print("\n🟥This text indicates SUICIDAL Tendencies")
-        else:
-            print("\n️ 🟩This text doesn't strongly indicate suicidal Tendencies")
+    user_input = '\n'.join(lines)
+    prediction, label, confidence = predict_text(model, user_input)
+    
+    print(f"\nPrediction: {label}")
+    print(f"Confidence: {confidence:.2%}")
+    print(f"Raw probability: {prediction:.4f}")
+    
+    if label == "suicide":
+        print("\n🟥This text indicates SUICIDAL Tendencies")
+    else:
+        print("\n️ 🟩This text doesn't strongly indicate suicidal Tendencies")
 
 if __name__ == "__main__":
     main()

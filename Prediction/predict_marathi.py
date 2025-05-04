@@ -102,52 +102,47 @@ def main():
 
     print("\nSuicide Risk Detection Model (Marathi/Hindi Input)")
     print("Enter your text in Marathi or Hindi (use multiple lines if needed)")
-    print("Type 'END' on a new line to finish input")
-    print("Type 'quit' or 'exit' to end the program\n")
+    print("Type 'END' on a new line to finish input\n")
 
+    print("Enter text to analyze (Marathi/Hindi):")
+    lines = []
     while True:
-        print("\nEnter text to analyze (Marathi/Hindi):")
-        lines = []
-        while True:
-            try:
-                line = input()
-            except EOFError: # Handle Ctrl+D or end of input stream
-                print("\nExiting.")
-                return
-            if line.strip().upper() == 'END':
-                break
-            if line.strip().lower() in ['quit', 'exit']:
-                print("Exiting.")
-                return
-            lines.append(line)
+        try:
+            line = input()
+        except EOFError: # Handle Ctrl+D or end of input stream
+            break
+        if line.strip().upper() == 'END':
+            break
+        lines.append(line)
 
-        if not lines:
-            continue
+    if not lines:
+        return
 
-        user_input = '\n'.join(lines)
-        print(f"\nOriginal Text ({len(user_input)} chars): {user_input[:100]}...") # Show snippet
+    user_input = '\n'.join(lines)
+    print(f"\nOriginal Text ({len(user_input)} chars): {user_input[:100]}...") # Show snippet
 
-        # --- Translate Text ---
-        print("Translating text to English...")
-        translated_text = translate_to_english(user_input, gemini_model)
+    # --- Translate Text ---
+    print("Translating text to English...")
+    translated_text = translate_to_english(user_input, gemini_model)
 
-        if not translated_text:
-            print("Translation failed or resulted in empty text. Skipping prediction.")
-            continue
+    if not translated_text:
+        print("Translation failed or resulted in empty text. Skipping prediction.")
+        return
 
-        print(f"Translated Text ({len(translated_text)} chars): {translated_text[:100]}...") # Show snippet
+    print(f"Translated Text ({len(translated_text)} chars): {translated_text[:100]}...") # Show snippet
 
-        # --- Predict using Suicide Model ---
-        prediction, label, confidence = predict_text(suicide_model, translated_text)
+    # --- Predict using Suicide Model ---
+    prediction, label, confidence = predict_text(suicide_model, translated_text)
 
-        print(f"\nPrediction: {label}")
-        print(f"Confidence: {confidence:.2%}")
-        print(f"Raw probability (based on translated text): {prediction:.4f}")
+    print(f"\nPrediction: {label}")
+    print(f"Confidence: {confidence:.2%}")
+    print(f"Raw probability (based on translated text): {prediction:.4f}")
 
-        if label == "suicide":
-            print("\n🟥This text indicates SUICIDAL Tendencies")
-        else:
-            print("\n️ 🟩This text doesn't strongly indicate suicidal Tendencies")
+    if label == "suicide":
+        print("\n🟥This text indicates SUICIDAL Tendencies")
+    else:
+        print("\n️ 🟩This text doesn't strongly indicate suicidal Tendencies")
+
 if __name__ == "__main__":
     # Add a note about dependencies and API key
     print("---")

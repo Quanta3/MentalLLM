@@ -1,0 +1,31 @@
+=== Detector Service Log Started at 2025-05-04T01:59:23.199Z ===
+
+[2025-05-04T01:59:23.199Z] [INFO] Starting Detector Service with 1 minute interval
+[2025-05-04T01:59:23.199Z] [INFO] Log file: /home/aditya/Projects/MentalLLM/Prediction/logs/detector_2025-05-04T01-59-23-199Z.log
+[2025-05-04T01:59:23.231Z] [INFO] MongoDB Connected: localhost
+[2025-05-04T01:59:23.231Z] [INFO] Detector service started. Will process chats every 1 minutes.
+[2025-05-04T01:59:23.232Z] [INFO] Starting chat processing...
+[2025-05-04T01:59:23.266Z] [INFO] Found 1 chat logs to process
+[2025-05-04T01:59:23.266Z] [INFO] Processing UUID: 395fbf26-dae4-44c3-8eff-882fc4ec3944, IP: ::1
+[2025-05-04T01:59:23.272Z] [INFO] Processing chat log for 395fbf26-dae4-44c3-8eff-882fc4ec3944 with 2 messages, total length: 32 chars
+[2025-05-04T01:59:23.272Z] [INFO] Using English model for prediction
+[2025-05-04T01:59:23.272Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:59:23.272Z] [DEBUG] Text length: 32 characters
+[2025-05-04T01:59:23.272Z] [DEBUG] Text snippet: What are you? Who are you ? this
+[2025-05-04T01:59:23.484Z] [ERROR] Python error output: 2025-05-04 07:29:23.483380: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+[2025-05-04T01:59:23.496Z] [ERROR] Python error output: 2025-05-04 07:29:23.493508: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+
+[2025-05-04T01:59:23.515Z] [ERROR] Python error output: WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1746323963.515135   85180 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+
+[2025-05-04T01:59:23.522Z] [ERROR] Python error output: E0000 00:00:1746323963.522228   85180 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+
+[2025-05-04T01:59:23.536Z] [ERROR] Python error output: W0000 00:00:1746323963.535563   85180 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323963.535614   85180 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323963.535617   85180 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1746323963.535618   85180 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+[2025-05-04T01:59:23.540Z] [ERROR] Python error output: 2025-05-04 07:29:23.540076: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+

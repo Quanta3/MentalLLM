@@ -1,0 +1,30 @@
+=== Detector Service Log Started at 2025-05-04T01:50:49.595Z ===
+
+[2025-05-04T01:50:49.595Z] [INFO] Starting Detector Service with 1 minute interval
+[2025-05-04T01:50:49.595Z] [INFO] Log file: /home/aditya/Projects/MentalLLM/Prediction/logs/detector_2025-05-04T01-50-49-595Z.log
+[2025-05-04T01:50:49.626Z] [INFO] MongoDB Connected: localhost
+[2025-05-04T01:50:49.627Z] [INFO] Detector service started. Will process chats every 1 minutes.
+[2025-05-04T01:50:49.627Z] [INFO] Starting chat processing...
+[2025-05-04T01:50:49.668Z] [INFO] Found 1 chat logs to process
+[2025-05-04T01:50:49.668Z] [INFO] Processing UUID: 40bb5237-30e5-4908-a4e8-424372da61de, IP: ::1
+[2025-05-04T01:50:49.671Z] [INFO] Processing chat log for 40bb5237-30e5-4908-a4e8-424372da61de with 1 messages, total length: 17 chars
+[2025-05-04T01:50:49.672Z] [INFO] Using English model for prediction
+[2025-05-04T01:50:49.672Z] [INFO] Running prediction using predict.py
+[2025-05-04T01:50:49.672Z] [DEBUG] Text length: 17 characters
+[2025-05-04T01:50:49.672Z] [DEBUG] Text snippet: What do you want?
+[2025-05-04T01:50:49.695Z] [ERROR] Python error output: Traceback (most recent call last):
+
+[2025-05-04T01:50:49.697Z] [ERROR] Python error output:   File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:50:49.702Z] [ERROR] Python process exited with code 1
+[2025-05-04T01:50:49.702Z] [ERROR] Full error output: Traceback (most recent call last):
+  File "/home/aditya/Projects/MentalLLM/Prediction/predict.py", line 1, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+
+[2025-05-04T01:50:49.702Z] [ERROR] Error processing chat log 40bb5237-30e5-4908-a4e8-424372da61de: Error: Python process failed with code 1
+[2025-05-04T01:50:49.702Z] [INFO] Finished processing all chat logs
+[2025-05-04T01:50:51.377Z] [INFO] Received SIGINT. Gracefully shutting down...
+[2025-05-04T01:50:51.377Z] [INFO] Detector service stopped.

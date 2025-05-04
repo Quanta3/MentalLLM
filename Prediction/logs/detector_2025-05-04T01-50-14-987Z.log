@@ -1,0 +1,11 @@
+=== Detector Service Log Started at 2025-05-04T01:50:14.987Z ===
+
+[2025-05-04T01:50:14.988Z] [INFO] Starting Detector Service with 1 minute interval
+[2025-05-04T01:50:14.988Z] [INFO] Log file: /home/aditya/Projects/MentalLLM/Prediction/logs/detector_2025-05-04T01-50-14-987Z.log
+[2025-05-04T01:50:15.027Z] [INFO] MongoDB Connected: localhost
+[2025-05-04T01:50:15.027Z] [INFO] Detector service started. Will process chats every 1 minutes.
+[2025-05-04T01:50:15.027Z] [INFO] Starting chat processing...
+[2025-05-04T01:50:15.056Z] [INFO] Found 0 chat logs to process
+[2025-05-04T01:50:15.056Z] [INFO] Finished processing all chat logs
+[2025-05-04T01:50:48.383Z] [INFO] Received SIGINT. Gracefully shutting down...
+[2025-05-04T01:50:48.383Z] [INFO] Detector service stopped.
