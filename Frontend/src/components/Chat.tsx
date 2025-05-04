@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import { Mic, Phone, MessageCircle, Sparkles, Menu, X, Heart, Clock, UserPlus } from "lucide-react"
+import { Mic, Phone, MessageCircle, Sparkles, Menu, X, HandHelping, Clock, UserPlus } from "lucide-react"
 import { motion } from "framer-motion"
 
 interface LocationData {
@@ -425,7 +425,7 @@ export default function Chat() {
               whileHover={{ rotate: 10 }} 
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Heart className="h-8 w-8 text-teal-500" />
+              <HandHelping className="h-8 w-8 text-teal-500" />
             </motion.div>
             <span className="font-bold text-xl text-teal-700">विश्वमित्र</span>
           </a>
@@ -501,7 +501,7 @@ export default function Chat() {
               >
                 {!message.isUser && (
                   <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center">
-                    <Heart className="h-4 w-4 text-teal-600" />
+                    <HandHelping className="h-4 w-4 text-teal-600" />
                   </div>
                 )}
                 <div
@@ -552,7 +552,7 @@ export default function Chat() {
                 className="flex justify-start items-end gap-2"
               >
                 <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center">
-                  <Heart className="h-4 w-4 text-teal-600" />
+                  <HandHelping className="h-4 w-4 text-teal-600" />
                 </div>
                 <div className="bg-gray-100 px-4 py-2 rounded-2xl rounded-bl-none">
                   <div className="flex gap-1">

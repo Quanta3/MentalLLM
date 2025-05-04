@@ -1,8 +1,9 @@
 "use client"
 
+
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Heart, Sparkles, Sun, Moon, MessageCircle, Calendar, ArrowRight, Menu, X, LogIn } from "lucide-react"
+import { HandHelping, Sparkles, Sun, Moon, MessageCircle, Calendar, ArrowRight, Menu, X, LogIn } from "lucide-react"
 import { usePage } from "../context/PageContext"
 
 export default function LandingPage() {
@@ -85,7 +86,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <a href="/" className="flex items-center gap-2">
             <motion.div whileHover={{ rotate: 10 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-              <Heart className="h-8 w-8 text-teal-500" />
+              <HandHelping className="h-8 w-8 text-teal-500" />
             </motion.div>
             <span className="font-bold text-xl text-teal-700">विश्वमित्र</span>
           </a>
@@ -188,7 +189,7 @@ export default function LandingPage() {
             repeatType: "reverse",
           }}
         >
-          <Heart className="h-48 w-48" />
+          <HandHelping className="h-48 w-48" />
         </motion.div>
         <motion.div
           className="absolute bottom-20 right-20 text-amber-200 opacity-30"
@@ -245,7 +246,7 @@ export default function LandingPage() {
                 </motion.button>
               </div>
               <div className="flex items-center justify-center gap-4 pt-6">
-                <div className="flex -space-x-2">
+                {/* <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
                       <img
@@ -255,10 +256,10 @@ export default function LandingPage() {
                       />
                     </div>
                   ))}
-                </div>
-                <p className="text-sm text-slate-600">
+                </div> */}
+                {/* <p className="text-sm text-slate-600">
                   <span className="font-bold text-teal-600">1,000+</span> people joined this month
-                </p>
+                </p> */}
               </div>
             </motion.div>
           </div>
@@ -305,15 +306,10 @@ export default function LandingPage() {
                   "आमचे प्रगत मॉडेल तुमच्या संभाषणांचे विश्लेषण करून तुमच्या मानसिक स्थितीचे मूल्यांकन करते.",
               },
               {
-                icon: <Heart className="h-10 w-10 text-red-500" />,
+                icon: <HandHelping className="h-10 w-10 text-red-500" />,
                 title: "तात्काळ मदत",
                 description:
                   "गंभीर परिस्थितीत, आमची प्रणाली योग्य अधिकाऱ्यांना सूचित करते आणि तात्काळ मदत सुनिश्चित करते.",
-              },
-              {
-                icon: <Calendar className="h-10 w-10 text-blue-500" />,
-                title: "प्रगती नोंदी",
-                description: "तुमच्या सर्व संभाषणांची सुरक्षित नोंद ठेवली जाते आणि तुमची प्रगती दाखवली जाते.",
               },
               {
                 icon: <Sun className="h-10 w-10 text-amber-500" />,
@@ -387,7 +383,7 @@ export default function LandingPage() {
                 />
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
                   <img
-                    src="/placeholder.svg?height=600&width=600"
+                    src="/mhealth.png?height=600&width=600"
                     alt="Our mission"
                     className="object-cover w-full h-auto rounded-2xl"
                   />
@@ -414,24 +410,6 @@ export default function LandingPage() {
               <p className="text-lg text-slate-600">
                 मानसिक आरोग्य व्यावसायिक आणि तंत्रज्ञान तज्ञांच्या टीमने स्थापन केलेले, आम्ही क्लिनिकल कौशल्यासह नाविन्यपूर्ण डिजिटल उपाय एकत्रित करतो जेणेकरून सहाय्यक, प्रभावी मानसिक आरोग्य अनुभव तयार होईल.
               </p>
-              <div className="grid grid-cols-2 gap-6 pt-4">
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-teal-600">98%</div>
-                  <p className="text-slate-600">वापरकर्ता समाधान दर</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-teal-600">50K+</div>
-                  <p className="text-slate-600">सक्रिय मासिक वापरकर्ते</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-teal-600">200+</div>
-                  <p className="text-slate-600">लायसन्स प्राप्त थेरपिस्ट</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-teal-600">24/7</div>
-                  <p className="text-slate-600">समर्थन उपलब्धता</p>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -519,45 +497,25 @@ export default function LandingPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="md:w-2/3 space-y-4">
-                <h2 className="text-3xl md:text-4xl font-bold">आजच तुमचा आरोग्य प्रवास सुरू करा</h2>
+            <div className="flex flex-col items-center gap-8">
+              <div className="space-y-4 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold">ऑपरेटर लॉगिन</h2>
                 <p className="text-teal-100">
-                  चांगल्या मानसिक आरोग्याकडे जाण्यासाठी पहिले पाऊल उचला. आत्ताच साइन अप करा आणि मोफत आरोग्य मूल्यांकन मिळवा.
+                  कृपया आपला ऑपरेटर आयडी आणि पासवर्ड प्रविष्ट करा. आपली सुरक्षा आमच्यासाठी सर्वोच्च महत्वाची आहे.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <div className="flex justify-center gap-4 pt-4">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => setPage('auth')}
                     className="flex items-center justify-center gap-2 bg-white text-teal-600 hover:bg-teal-50 px-8 py-3 rounded-full transition-colors font-medium"
                   >
-                    आत्ताच प्रारंभ करा
+                    लॉगिन करा
                     <ArrowRight className="h-5 w-5" />
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center justify-center gap-2 border border-white text-white hover:bg-white/10 px-8 py-3 rounded-full transition-colors"
-                  >
-                    डेमो शेड्यूल करा
                   </motion.button>
                 </div>
               </div>
-              <div className="md:w-1/3 flex justify-center">
-                <motion.div
-                  animate={{
-                    y: [0, 10, 0],
-                    rotate: [0, 5, 0],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                  }}
-                >
-                  <Heart className="h-32 w-32 text-white opacity-80" />
-                </motion.div>
-              </div>
+              {/* Optionally remove right-side illustration for a centered layout */}
             </div>
           </motion.div>
         </div>
@@ -566,10 +524,10 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Heart className="h-6 w-6 text-teal-500" />
+                <HandHelping className="h-6 w-6 text-teal-500" />
                 <span className="font-bold text-xl text-teal-700">विश्वमित्र</span>
               </div>
               <p className="text-slate-600 mb-4">
@@ -588,35 +546,6 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
-
-            <div>
-              <h3 className="font-bold text-slate-800 mb-4">Services</h3>
-              <ul className="space-y-3">
-                {["Online Therapy", "Guided Meditation", "Wellness Planning", "Support Groups", "Mood Tracking"].map(
-                  (item) => (
-                    <li key={item}>
-                      <a href="#" className="text-slate-600 hover:text-teal-600 transition-colors">
-                        {item}
-                      </a>
-                    </li>
-                  ),
-                )}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-slate-800 mb-4">Company</h3>
-              <ul className="space-y-3">
-                {["About Us", "Our Team", "Careers", "Press", "Contact"].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-slate-600 hover:text-teal-600 transition-colors">
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             <div>
               <h3 className="font-bold text-slate-800 mb-4">Resources</h3>
               <ul className="space-y-3">
@@ -629,10 +558,8 @@ export default function LandingPage() {
                 ))}
               </ul>
             </div>
-          </div>
-
-          <div className="border-t border-slate-200 mt-12 pt-8 text-center text-slate-600 text-sm">
-            <div className="flex justify-center items-center gap-4 mb-4">
+            <div className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center">
+              <h3 className="font-bold text-slate-800 mb-4">Operator Login</h3>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -643,6 +570,8 @@ export default function LandingPage() {
                 Operator Login
               </motion.button>
             </div>
+          </div>
+          <div className="border-t border-slate-200 mt-12 pt-8 text-center text-slate-600 text-sm">
             <p>&copy; {new Date().getFullYear()} विश्वमित्र. All rights reserved.</p>
           </div>
         </div>
