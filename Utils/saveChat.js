@@ -27,9 +27,13 @@ const saveChatLog = async ({ uuid, userQuery, location, ipAddress }) => {
     const fullChatForEvaluation = updatedChatHistory.join(' ');
     const suicideRiskPercent = await evaluateRisk(fullChatForEvaluation); // Assume this returns 0-100
 
-    let riskLevel = 'low';
-    if (suicideRiskPercent >= 70) riskLevel = 'high';
-    else if (suicideRiskPercent >= 40) riskLevel = 'moderate';
+    // Baseline is 50%
+    // Below 50% is normal
+    let riskLevel = 'normal';
+    if (suicideRiskPercent >= 80) riskLevel = 'high';
+    else if (suicideRiskPercent >= 65) riskLevel = 'moderate';
+    else if (suicideRiskPercent >= 50) riskLevel = 'low';
+    // Below 50% remains 'normal'
 
     let chatLog;
     if (existingLog) {
@@ -37,14 +41,20 @@ const saveChatLog = async ({ uuid, userQuery, location, ipAddress }) => {
       existingLog.suicideRiskPercent = suicideRiskPercent;
       existingLog.riskLevel = riskLevel;
       if (location) existingLog.location = location;
-      if (ipAddress) existingLog.ipAddress = ipAddress; // new handling
+      
+      // Only update ipAddress if it's provided and not null/undefined/empty string
+      // This preserves the original IP address from being overwritten
+      if (ipAddress && ipAddress !== '::1') {
+        existingLog.ipAddress = ipAddress;
+      }
+      
       chatLog = await existingLog.save();
     } else {
       chatLog = new ChatLog({
         uuid,
         chatHistory: updatedChatHistory,
         location: location || undefined,
-        ipAddress: ipAddress || undefined, // new field
+        ipAddress: ipAddress && ipAddress !== '::1' ? ipAddress : undefined, // Don't save ::1
         suicideRiskPercent,
         riskLevel,
       });

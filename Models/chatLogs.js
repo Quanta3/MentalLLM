@@ -23,11 +23,13 @@ const chatLogsSchema = new mongoose.Schema({
     type: Number,
     min: 0,
     max: 100,
+    default: 0,
     required: true
   },
   riskLevel: {
     type: String,
-    enum: ['low', 'moderate', 'high'],
+    enum: ['normal', 'low', 'moderate', 'high'],
+    default: 'normal',
     required: true
   },
   timestamp: {

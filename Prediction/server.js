@@ -151,9 +151,10 @@ const runPrediction = (text, useMarathiModel = false) => {
 
 // Function to determine risk level based on percentage
 const getRiskLevel = (percentage) => {
-  if (percentage >= 70) return 'high';
-  if (percentage >= 40) return 'moderate';
-  return 'low';
+  if (percentage >= 80) return 'high';
+  if (percentage >= 65) return 'moderate';
+  if (percentage >= 50) return 'low';
+  return 'normal'; // Below 50% is considered normal
 };
 
 // Main function to process all chats

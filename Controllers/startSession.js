@@ -18,7 +18,7 @@ const startSession = async (req, res) => {
       chatHistory: [],
       location: { latitude, longitude, city },
       suicideRiskPercent: 0,
-      riskLevel: 'low',
+      riskLevel: 'normal',
     });
 
     await newChatLog.save();
