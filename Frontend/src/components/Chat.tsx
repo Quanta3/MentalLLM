@@ -23,6 +23,7 @@ export default function Chat() {
   const [isLoading, setIsLoading] = useState(false)
   const [isVoiceMode, setIsVoiceMode] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [isRecording, setIsRecording] = useState(false)
   const visualizerBars = Array(12).fill(0)
 
   // Audio playback state
@@ -30,6 +31,10 @@ export default function Chat() {
   const bufferStore = useRef<Record<number, string>>({})
   const expectedIndex = useRef<number>(1)
   const playbackPromise = useRef<Promise<void>>(Promise.resolve())
+  
+  // Audio recording state
+  const mediaRecorder = useRef<MediaRecorder | null>(null)
+  const audioChunks = useRef<Blob[]>([])
 
   useEffect(() => {
     audioCtx.current = new (window.AudioContext || (window as any).webkitAudioContext)()
@@ -237,6 +242,149 @@ export default function Chat() {
     }
   };
 
+  const toggleRecording = async () => {
+    if (isRecording) {
+      // Stop recording
+      mediaRecorder.current?.stop();
+      setIsRecording(false);
+    } else {
+      // Start recording
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        audioChunks.current = [];
+        
+        const recorder = new MediaRecorder(stream);
+        recorder.ondataavailable = (e) => {
+          if (e.data.size > 0) {
+            audioChunks.current.push(e.data);
+          }
+        };
+        
+        recorder.onstop = async () => {
+          // Convert audio chunks to base64
+          const audioBlob = new Blob(audioChunks.current, { type: 'audio/wav' });
+          const reader = new FileReader();
+          
+          reader.onloadend = async () => {
+            const base64Audio = reader.result as string;
+            await sendAudioForTranscription(base64Audio);
+            
+            // Stop tracks
+            stream.getTracks().forEach(track => track.stop());
+          };
+          
+          reader.readAsDataURL(audioBlob);
+        };
+        
+        mediaRecorder.current = recorder;
+        recorder.start();
+        setIsRecording(true);
+      } catch (error) {
+        console.error('Error accessing microphone:', error);
+      }
+    }
+  };
+
+  const sendAudioForTranscription = async (base64Audio: string) => {
+    setIsLoading(true);
+    
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/user/transcribe`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          base64Audio
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Transcription failed with status ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      if (data.transcription) {
+        // Send the transcription to the voice query endpoint
+        await sendVoiceQuery(data.transcription);
+      }
+    } catch (error) {
+      console.error('Error with transcription:', error);
+      setIsLoading(false);
+    }
+  };
+  
+  const sendVoiceQuery = async (transcription: string) => {
+    try {
+      // Add user message to chat
+      const userMessage = { text: transcription, isUser: true };
+      setMessages(prev => [...prev, userMessage]);
+      
+      // Reset audio state
+      bufferStore.current = {};
+      expectedIndex.current = 1;
+      playbackPromise.current = Promise.resolve();
+      
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/user/query/voice`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          uuid: contextId,
+          userQuery: transcription
+        })
+      });
+      
+      // Add bot message
+      const botMessage = { text: "Voice message", isUser: false, isVoice: true };
+      setMessages(prev => [...prev, botMessage]);
+      
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder();
+      let sseBuffer = '';
+      
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          
+          sseBuffer += decoder.decode(value, { stream: true });
+          const parts = sseBuffer.split('\n\n');
+          sseBuffer = parts.pop() || '';
+          
+          for (const block of parts) {
+            let eventType = '', dataLine = '';
+            for (const line of block.split('\n')) {
+              if (line.startsWith('event:')) eventType = line.slice(6).trim();
+              if (line.startsWith('data:')) dataLine += line.slice(5).trim();
+            }
+            if (eventType === 'audio') {
+              try {
+                const { index, audio } = JSON.parse(dataLine);
+                bufferStore.current[index] = audio;
+                tryPlaying();
+              } catch (e) {
+                console.error('Invalid JSON chunk', e);
+              }
+            }
+          }
+        }
+        await playbackPromise.current;
+        
+        // After playback completes, switch back to text mode
+        setIsVoiceMode(false);
+      }
+    } catch (error) {
+      console.error('Error sending voice query:', error);
+      // Also switch back to text mode on error
+      setIsVoiceMode(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -425,11 +573,24 @@ export default function Chat() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setIsVoiceMode(!isVoiceMode)}
+            onClick={() => {
+              if (isRecording) {
+                // Stop recording
+                toggleRecording();
+              } else {
+                // Start recording and enable voice mode if not already enabled
+                if (!isVoiceMode) {
+                  setIsVoiceMode(true);
+                }
+                toggleRecording();
+              }
+            }}
             className={`p-3 rounded-full transition-colors ${
-              isVoiceMode 
-                ? 'bg-teal-500 text-white' 
-                : 'bg-slate-100 text-slate-600'
+              isRecording 
+                ? 'bg-red-500 text-white animate-pulse'
+                : isVoiceMode 
+                  ? 'bg-teal-500 text-white' 
+                  : 'bg-slate-100 text-slate-600'
             }`}
           >
             <Mic className="h-5 w-5" />
