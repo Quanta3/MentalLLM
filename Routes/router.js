@@ -5,6 +5,7 @@ import protect from '../Middleware/auth_middleware.js'
 import sucideLogger from '../Controllers/sucideLogger.js'
 import saveQuery from '../Middleware/saveQuery.js'
 import startSession from '../Controllers/startSession.js'
+import operatorController from '../Controllers/operatorController.js'
 const router = express.Router()
 import { transcribeAudio } from '../Controllers/audioController.js'
 
@@ -15,5 +16,10 @@ router.get('/logs', protect, sucideLogger)
 router.post('/start', startSession)
 router.post('/transcribe', transcribeAudio)
 
+/**
+ * @todo implement auth middleware here
+ */
+router.get('/chatlogs', operatorController.getAllChatLogs)
+router.get('/chatlogs/filter',  operatorController.getChatLogsByRiskLevel)
 
 export default router;
